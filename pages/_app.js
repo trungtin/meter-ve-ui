@@ -10,7 +10,6 @@ import lightTheme from '../theme/light';
 import darkTheme from '../theme/dark';
 
 import Configure from './configure';
-import ShutdownNotice from '../components/shutdownNotice'
 
 import stores from '../stores/index.js';
 
@@ -71,11 +70,6 @@ export default function MyApp({ Component, pageProps }) {
     }
   };
 
-  const [shutdownNoticeOpen, setShutdownNoticeOpen] = useState(true);
-  const closeShutdown = () => {
-    setShutdownNoticeOpen(false)
-  }
-
   return (
     <React.Fragment>
       <Head>
@@ -91,9 +85,6 @@ export default function MyApp({ Component, pageProps }) {
           </Layout>
         )}
         {!validateConfigured() && <Configure {...pageProps} />}
-        { shutdownNoticeOpen &&
-          <ShutdownNotice close={ closeShutdown } />
-        }
       </ThemeProvider>
     </React.Fragment>
   );
