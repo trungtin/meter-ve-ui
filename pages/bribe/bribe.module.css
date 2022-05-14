@@ -16,7 +16,7 @@
   padding: 50px;
   height: calc(100vh - 230px);
   box-shadow: none !important;
-  border: 1px solid rgba(104,108,122, 0.2) !important;
+  border: 1px solid rgba(104, 108, 122, 0.2) !important;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -42,7 +42,7 @@
 .mainDesc {
   margin: 20px auto 0px auto !important;
   text-align: left !important;
-  color: rgb(104,108,122);
+  color: rgb(104, 108, 122);
   font-size: 18px !important;
   font-family: 'Roboto', sans-serif !important;
   font-weight: 300 !important;
@@ -57,7 +57,7 @@
 .mainDescNC {
   margin: 30px auto !important;
   text-align: center !important;
-  color: rgb(104,108,122);
+  color: rgb(104, 108, 122);
   font-size: 18px !important;
   max-width: 800px;
   line-height: 1.8rem !important;
@@ -65,9 +65,9 @@
 
 .buttonConnect {
   background: linear-gradient(-45deg, #23a6d5, #234ce7);
-	background-size: 200% 200%;
-	animation: gradient 35s ease infinite;
-  color: #FFF !important;
+  background-size: 200% 200%;
+  animation: gradient 35s ease infinite;
+  color: #fff !important;
   border-radius: 40px !important;
   padding: 12px 24px !important;
   font-weight: 700 !important;
@@ -75,19 +75,18 @@
 }
 
 @keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 @media screen and (max-width: 1600px) {
-
 }
 
 @media screen and (max-width: 1200px) {

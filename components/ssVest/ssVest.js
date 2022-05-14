@@ -1,18 +1,17 @@
-import React, { useState, useEffect,  useCallback } from "react";
+import React, { useState, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/router';
-import BigNumber from "bignumber.js";
-import classes from "./ssVest.module.css";
-import stores from "../../stores";
-import { ACTIONS } from "../../stores/constants";
-import moment from "moment";
+import BigNumber from 'bignumber.js';
+import classes from './ssVest.module.css';
+import stores from '../../stores';
+import { ACTIONS } from '../../stores/constants';
+import moment from 'moment';
 
-import ExistingLock from "./existingLock";
-import Unlock from "./unlock";
-import Loading from "./loading";
+import ExistingLock from './existingLock';
+import Unlock from './unlock';
+import Loading from './loading';
 import Lock from './lock';
 
 export default function ssVest() {
-
   const router = useRouter();
 
   const [, updateState] = useState();
@@ -23,16 +22,16 @@ export default function ssVest() {
   const [nft, setNFT] = useState(null);
 
   const ssUpdated = async () => {
-    setGovToken(stores.stableSwapStore.getStore("govToken"));
-    setVeToken(stores.stableSwapStore.getStore("veToken"));
+    setGovToken(stores.stableSwapStore.getStore('govToken'));
+    setVeToken(stores.stableSwapStore.getStore('veToken'));
 
-    const nft = await stores.stableSwapStore.getNFTByID(router.query.id)
-    setNFT(nft)
-    forceUpdate()
+    const nft = await stores.stableSwapStore.getNFTByID(router.query.id);
+    setNFT(nft);
+    forceUpdate();
   };
 
   useEffect(() => {
-    ssUpdated()
+    ssUpdated();
 
     stores.emitter.on(ACTIONS.UPDATED, ssUpdated);
     return () => {
@@ -41,33 +40,26 @@ export default function ssVest() {
   }, []);
 
   useEffect(async () => {
-    ssUpdated()
-  }, [router.query.id])
+    ssUpdated();
+  }, [router.query.id]);
 
   return (
-    <div className={ classes.vestContainer }>
-      { router.query.id === 'create' && (
-        <Lock
-          nft={nft}
-          govToken={govToken}
-          veToken={veToken}
-        />
+    <div className={classes.vestContainer}>
+      {router.query.id === 'create' && (
+        <Lock nft={nft} govToken={govToken} veToken={veToken} />
       )}
-      { router.query.id !== 'create' && nft && BigNumber(nft.lockEnds).gte(moment().unix()) && BigNumber(nft.lockEnds).gt(0) && (
-        <ExistingLock
-          nft={nft}
-          govToken={govToken}
-          veToken={veToken}
-        />
-      )}
-      { router.query.id !== 'create' && nft && BigNumber(nft.lockEnds).lt(moment().unix()) && BigNumber(nft.lockEnds).gt(0) && (
-          <Unlock
-            nft={nft}
-            govToken={govToken}
-            veToken={veToken}
-          />
-        )
-      }
+      {router.query.id !== 'create' &&
+        nft &&
+        BigNumber(nft.lockEnds).gte(moment().unix()) &&
+        BigNumber(nft.lockEnds).gt(0) && (
+          <ExistingLock nft={nft} govToken={govToken} veToken={veToken} />
+        )}
+      {router.query.id !== 'create' &&
+        nft &&
+        BigNumber(nft.lockEnds).lt(moment().unix()) &&
+        BigNumber(nft.lockEnds).gt(0) && (
+          <Unlock nft={nft} govToken={govToken} veToken={veToken} />
+        )}
     </div>
   );
 }

@@ -1,17 +1,16 @@
-import { Typography, Button, Paper, SvgIcon } from "@material-ui/core"
-import SSRewards from '../../components/ssRewards'
+import { Typography, Button, Paper, SvgIcon } from '@material-ui/core';
+import SSRewards from '../../components/ssRewards';
 
 import React, { useState, useEffect } from 'react';
 import { ACTIONS } from '../../stores/constants';
 
 import stores from '../../stores';
-import { useRouter } from "next/router";
+import { useRouter } from 'next/router';
 import Unlock from '../../components/unlock';
 
 import classes from './rewards.module.css';
 
 function Rewards({ changeTheme }) {
-
   const accountStore = stores.accountStore.getStore('account');
   const router = useRouter();
   const [account, setAccount] = useState(accountStore);
@@ -30,7 +29,10 @@ function Rewards({ changeTheme }) {
     stores.emitter.on(ACTIONS.ACCOUNT_CONFIGURED, accountConfigure);
     stores.emitter.on(ACTIONS.CONNECT_WALLET, connectWallet);
     return () => {
-      stores.emitter.removeListener(ACTIONS.ACCOUNT_CONFIGURED, accountConfigure);
+      stores.emitter.removeListener(
+        ACTIONS.ACCOUNT_CONFIGURED,
+        accountConfigure
+      );
       stores.emitter.removeListener(ACTIONS.CONNECT_WALLET, connectWallet);
     };
   }, []);
@@ -45,31 +47,37 @@ function Rewards({ changeTheme }) {
 
   return (
     <div className={classes.ffContainer}>
-      {account && account.address ?
+      {account && account.address ? (
         <div className={classes.connected}>
           <SSRewards />
         </div>
-         :
+      ) : (
         <Paper className={classes.notConnectedContent}>
           <div className={classes.sphere}></div>
           <div className={classes.contentFloat}>
-            <Typography className={classes.mainHeadingNC} variant='h1'>Rewards</Typography>
-            <Typography className={classes.mainDescNC} variant='body2'>
+            <Typography className={classes.mainHeadingNC} variant="h1">
+              Rewards
+            </Typography>
+            <Typography className={classes.mainDescNC} variant="body2">
               Claim your share of rewards!
             </Typography>
             <Button
-            disableElevation
-            className={classes.buttonConnect}
-            variant="contained"
-            onClick={onAddressClicked}>
-            {account && account.address && <div className={`${classes.accountIcon} ${classes.metamask}`}></div>}
-            <Typography>Connect Wallet to Continue</Typography>
+              disableElevation
+              className={classes.buttonConnect}
+              variant="contained"
+              onClick={onAddressClicked}
+            >
+              {account && account.address && (
+                <div
+                  className={`${classes.accountIcon} ${classes.metamask}`}
+                ></div>
+              )}
+              <Typography>Connect Wallet to Continue</Typography>
             </Button>
           </div>
         </Paper>
-       }
-       {unlockOpen && <Unlock modalOpen={unlockOpen} closeModal={closeUnlock} />}
-
+      )}
+      {unlockOpen && <Unlock modalOpen={unlockOpen} closeModal={closeUnlock} />}
     </div>
   );
 }

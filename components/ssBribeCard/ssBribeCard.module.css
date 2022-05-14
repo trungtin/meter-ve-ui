@@ -3,7 +3,7 @@
   border-radius: 30px !important;
   display: flex;
   flex-direction: column;
-  border-bottom: 3px solid #0048FF;
+  border-bottom: 3px solid #0048ff;
 }
 
 .chainContainerPositive {
@@ -53,13 +53,12 @@
 }
 
 .bottomActions {
-  border-top: 1px solid #FFFFFF1A;
+  border-top: 1px solid #ffffff1a;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   padding: 6px 24px;
 }
-
 
 .buttonLabel {
   text-transform: none !important;
@@ -74,12 +73,12 @@
 }
 
 .avatar {
-  background-color: #0053FF;
+  background-color: #0053ff;
   border-radius: 90px;
   font-size: 63px !important;
   padding: 10px;
   color: #fff;
-  box-shadow: 0px 7px 7px #0000000A;
-  -webkit-box-shadow: 0px 7px 7px #0000000A;
-  -moz-box-shadow: 0px 7px 7px #0000000A;
+  box-shadow: 0px 7px 7px #0000000a;
+  -webkit-box-shadow: 0px 7px 7px #0000000a;
+  -moz-box-shadow: 0px 7px 7px #0000000a;
 }

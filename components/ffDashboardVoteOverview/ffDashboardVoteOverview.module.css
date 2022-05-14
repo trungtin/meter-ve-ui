@@ -38,7 +38,7 @@
   border-radius: 12px;
   overflow: hidden;
   min-height: 110px;
-  border: 1px solid rgba(104,108,122, 0.2) !important;
+  border: 1px solid rgba(104, 108, 122, 0.2) !important;
   padding: 0 !important;
   margin: 0 !important;
 }
@@ -60,7 +60,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(6,211,215,0.04) !important;
+  background: rgba(6, 211, 215, 0.04) !important;
 }
 
 .pieField {
@@ -69,7 +69,7 @@
   top: -50px;
   max-height: 100px !important;
   z-index: 10;
-  transform: scale(.7);
+  transform: scale(0.7);
 }
 
 @media screen and (max-width: 1200px) {

@@ -11,14 +11,14 @@
 .transactionsContainer {
   border-radius: 12px;
   background: rgb(33, 43, 72);
-  border: 1px solid rgba(108,108,123, 0.2);
+  border: 1px solid rgba(108, 108, 123, 0.2);
   padding: 24px;
   margin-bottom: 12px;
 }
 
 .transaction {
   padding: 12px 12px;
-  border-bottom: 1px solid rgba(108,108,123, 0.2);
+  border-bottom: 1px solid rgba(108, 108, 123, 0.2);
   cursor: pointer;
 }
 
@@ -99,7 +99,7 @@
   text-align: center !important;
   line-height: 1.5rem !important;
   margin-bottom: 40px !important;
-  color: rgba(126,153,176,0.8) !important;
+  color: rgba(126, 153, 176, 0.8) !important;
 }
 
 .viewDetailsText {
@@ -109,11 +109,11 @@
 }
 
 .viewDetailsText a {
-  color: #06D3D7 !important;
+  color: #06d3d7 !important;
 }
 
 .viewDetailsText a:hover {
-  color: #FFF !important;
+  color: #fff !important;
 }
 
 .newWindowIcon {

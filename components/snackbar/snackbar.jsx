@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
-import { Snackbar, IconButton, Button, Typography, SvgIcon } from '@material-ui/core';
+import {
+  Snackbar,
+  IconButton,
+  Button,
+  Typography,
+  SvgIcon,
+} from '@material-ui/core';
 
 import { colors } from '../../theme/coreTheme';
 
-import { ETHERSCAN_URL } from '../../stores/constants'
+import { ETHERSCAN_URL } from '../../stores/constants';
 
 const iconStyle = {
   fontSize: '32px',
@@ -15,7 +21,10 @@ function CloseIcon(props) {
   const { color } = props;
   return (
     <SvgIcon style={{ fontSize: '22px' }}>
-      <path fill={color} d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
+      <path
+        fill={color}
+        d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"
+      />
     </SvgIcon>
   );
 }
@@ -24,7 +33,10 @@ function SuccessIcon(props) {
   const { color } = props;
   return (
     <SvgIcon style={iconStyle}>
-      <path fill={color} d="M12,0A12,12,0,1,0,24,12,12,12,0,0,0,12,0ZM10.75,16.518,6.25,12.2l1.4-1.435L10.724,13.7l6.105-6.218L18.25,8.892Z" />
+      <path
+        fill={color}
+        d="M12,0A12,12,0,1,0,24,12,12,12,0,0,0,12,0ZM10.75,16.518,6.25,12.2l1.4-1.435L10.724,13.7l6.105-6.218L18.25,8.892Z"
+      />
     </SvgIcon>
   );
 }
@@ -120,9 +132,13 @@ class MySnackbar extends Component {
         color = colors.blue;
         messageType = 'Hash';
 
-        let snackbarMessage = ETHERSCAN_URL+'tx/' + message;
+        let snackbarMessage = ETHERSCAN_URL + 'tx/' + message;
         actions = [
-          <Button variant="text" size="small" onClick={() => window.open(snackbarMessage, '_blank')}>
+          <Button
+            variant="text"
+            size="small"
+            onClick={() => window.open(snackbarMessage, '_blank')}
+          >
             View
           </Button>,
           <IconButton key="close" aria-label="Close" onClick={this.handleClose}>
@@ -146,7 +162,7 @@ class MySnackbar extends Component {
         open={this.state.open}
         autoHideDuration={16000}
         onClose={this.handleClose}
-        style={{ borderRadius: '18px', backgroundColor: color, padding: '5px', }}
+        style={{ borderRadius: '18px', backgroundColor: color, padding: '5px' }}
         message={
           <div
             style={{
@@ -164,7 +180,15 @@ class MySnackbar extends Component {
                 overflowX: 'hidden',
               }}
             >
-              <Typography variant="body1" style={{ fontSize: '14px', marginBottom: '6px', fontWeight: '700', color: color }}>
+              <Typography
+                variant="body1"
+                style={{
+                  fontSize: '14px',
+                  marginBottom: '6px',
+                  fontWeight: '700',
+                  color: color,
+                }}
+              >
                 {messageType}
               </Typography>
               <Typography variant="body1" style={{ fontSize: '12px' }}>

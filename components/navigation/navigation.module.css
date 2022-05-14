@@ -8,7 +8,9 @@
   padding: 3px;
 }
 
-a.linkz { cursor: pointer !important; }
+a.linkz {
+  cursor: pointer !important;
+}
 
 .icon {
   width: 20px !important;
@@ -38,7 +40,7 @@ a.linkz { cursor: pointer !important; }
 .ffTitle {
   cursor: pointer;
   font-size: 24px !important;
-  color: #1c46f5 ;
+  color: #1c46f5;
 }
 
 .navigationContentMobile {
@@ -54,7 +56,12 @@ a.linkz { cursor: pointer !important; }
   width: 100%;
   border-radius: 10px;
   cursor: pointer;
-  background: radial-gradient(circle, rgba(63,94,251,0.7) 0%, rgba(47,128,237,0.7) 48%) rgba(63,94,251,0.7) 100%;
+  background: radial-gradient(
+      circle,
+      rgba(63, 94, 251, 0.7) 0%,
+      rgba(47, 128, 237, 0.7) 48%
+    )
+    rgba(63, 94, 251, 0.7) 100%;
 }
 
 .socials {
@@ -147,7 +154,6 @@ a.linkz { cursor: pointer !important; }
   background-image: url('/connectors/trustWallet.png');
 }
 
-
 .menuIcon {
   display: none;
 }
@@ -162,7 +168,6 @@ a.linkz { cursor: pointer !important; }
   padding-top: 0px;
 }
 
-
 .navigationOptionContainer {
   display: flex;
   align-items: center;
@@ -174,7 +179,6 @@ a.linkz { cursor: pointer !important; }
 }
 
 .subAssets {
-
 }
 
 .navigationSubOptionContainer {
@@ -195,7 +199,7 @@ a.linkz { cursor: pointer !important; }
 .sectionDivider {
   height: 100%;
   width: 1px;
-  background: rgba(104,108,122,0.15);
+  background: rgba(104, 108, 122, 0.15);
   margin: 16px 0 15px 26px;
 }
 
@@ -238,7 +242,6 @@ a.linkz { cursor: pointer !important; }
   align-items: center;
   justify-content: center;
 }
-
 
 .navigationOptionContainer:hover .navigationOptionIcon {
   background: #000;
@@ -302,14 +305,14 @@ a.linkz { cursor: pointer !important; }
   border-radius: 10px !important;
   padding: 8px 24px 10px 24px !important;
   text-transform: capitalize !important;
-  border: 1px solid rgba(0,0,0,0) !important;
-  color: #7E99B0 !important;
+  border: 1px solid rgba(0, 0, 0, 0) !important;
+  color: #7e99b0 !important;
 } /* Transparent border to eliminate position jittering from Active state */
 
 .testChange {
   border: 1px solid #06d3d7 !important;
-  background-color: rgba(0,0,0,0) !important;
-  color: #FFF !important;
+  background-color: rgba(0, 0, 0, 0) !important;
+  color: #fff !important;
 }
 
 @media screen and (max-width: 1200px) {
@@ -337,7 +340,7 @@ a.linkz { cursor: pointer !important; }
     width: 100%;
     text-align: center;
     padding: 15px 0;
-    border-bottom: 1px solid rgba(126,153,176,0.2);
+    border-bottom: 1px solid rgba(126, 153, 176, 0.2);
   }
   .navigationContentMobile {
     position: fixed;
@@ -404,7 +407,12 @@ a.linkz { cursor: pointer !important; }
     border-radius: 10px;
     text-align: center !important;
     cursor: pointer;
-    background: radial-gradient(circle, rgba(63,94,251,0.7) 0%, rgba(47,128,237,0.7) 48%) rgba(63,94,251,0.7) 100%;
+    background: radial-gradient(
+        circle,
+        rgba(63, 94, 251, 0.7) 0%,
+        rgba(47, 128, 237, 0.7) 48%
+      )
+      rgba(63, 94, 251, 0.7) 100%;
   }
 
   .sectionText {
@@ -465,8 +473,8 @@ a.linkz { cursor: pointer !important; }
     border-radius: 10px !important;
     padding: 8px 10px 8px 10px !important;
     text-transform: capitalize !important;
-    border: 1px solid rgba(0,0,0,0) !important;
-    color: #7E99B0 !important;
+    border: 1px solid rgba(0, 0, 0, 0) !important;
+    color: #7e99b0 !important;
   }
 
   .subtitleText {
@@ -486,8 +494,8 @@ a.linkz { cursor: pointer !important; }
 
   .testChange {
     border: 1px solid #06d3d7 !important;
-    background-color: rgba(0,0,0,0) !important;
-    color: #FFF !important;
+    background-color: rgba(0, 0, 0, 0) !important;
+    color: #fff !important;
   }
 
   .navigationContent {
@@ -498,6 +506,6 @@ a.linkz { cursor: pointer !important; }
     width: 100%;
     text-align: center;
     padding: 15px 0;
-    border-bottom: 1px solid rgba(126,153,176,0.2);
+    border-bottom: 1px solid rgba(126, 153, 176, 0.2);
   }
 }

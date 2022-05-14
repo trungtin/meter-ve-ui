@@ -139,7 +139,6 @@
 .actionsContainer {
   width: 100%;
   margin-top: 20px;
-
 }
 
 .actionButtonText {
@@ -251,7 +250,7 @@
   justify-content: center;
   border-radius: 30px;
   font-size: 11px !important;
-  border: 1px solid rgba(104,108,122,0.2);
+  border: 1px solid rgba(104, 108, 122, 0.2);
   position: absolute;
   top: -2px;
   right: 3px;
@@ -284,9 +283,6 @@
 .vestPeriodLabel > span {
   font-size: 12px !important;
 }
-
-
-
 
 .vestingInfoContainer {
   padding: 12px;
@@ -328,10 +324,6 @@
 .vestInfo > .text {
   font-size: 14px !important;
 }
-
-
-
-
 
 .error {
   border: 1px solid #dc3545;
@@ -444,7 +436,7 @@
   align-items: center;
   justify-content: center;
   background: none;
-  border: 1px solid #212B48;
+  border: 1px solid #212b48;
   border-radius: 10px;
   width: calc(100% - 0px);
   margin: 0px 0px 15px 0px;
@@ -459,7 +451,7 @@
 }
 
 .backIcon {
-  color: #06D3D7 !important;
+  color: #06d3d7 !important;
 }
 
 .titleText {
@@ -496,7 +488,7 @@
 
 .vestInfoContainer > .mainSection > .values > .val {
   font-size: 10px !important;
-  padding: 3px 0px
+  padding: 3px 0px;
 }
 
 .vestInfoContainer > .seccondSection {
@@ -505,9 +497,8 @@
 .vestInfoContainer > .seccondSection > .info {
   font-size: 12px !important;
   font-style: italic;
-  padding: 3px 0px !important
+  padding: 3px 0px !important;
 }
-
 
 @media screen and (max-width: 1200px) {
   .container {
@@ -526,5 +517,4 @@
 }
 
 @media screen and (max-width: 560px) {
-
 }

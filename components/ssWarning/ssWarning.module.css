@@ -17,7 +17,7 @@
   justify-content: center;
   flex-direction: column;
   max-width: 540px;
-  border: 1px solid rgba(104,108,122,0.2);
+  border: 1px solid rgba(104, 108, 122, 0.2);
   padding: 40px;
   border-radius: 20px;
 }
@@ -30,7 +30,7 @@
 .title1 {
   font: normal normal normal 23px/36px Inter !important;
   letter-spacing: 0px !important;
-  color: #FFF;
+  color: #fff;
   margin-bottom: 10px !important;
 }
 
@@ -39,7 +39,7 @@
   letter-spacing: 0px !important;
   margin-bottom: 36px !important;
   text-align: center;
-  color: #06D3D7 !important;
+  color: #06d3d7 !important;
 }
 
 .paragraph {
@@ -47,11 +47,11 @@
   font: normal normal bold 14px/22px Inter !important;
   letter-spacing: 0px !important;
   margin-bottom: 33px !important;
-  color: rgba(126,153,176,0.8);
+  color: rgba(126, 153, 176, 0.8);
 }
 
 .paragraph span {
-  color: #FFF;
+  color: #fff;
 }
 
 .buttonsContainer {
@@ -59,10 +59,10 @@
 }
 
 .primaryButton {
-    background: rgb(23, 52, 72) !important;
-    font-weight: 700 !important;
-    width: 100%;
-    margin-bottom: 15px !important;
+  background: rgb(23, 52, 72) !important;
+  font-weight: 700 !important;
+  width: 100%;
+  margin-bottom: 15px !important;
 }
 
 .secondaryButton {
@@ -71,19 +71,17 @@
 
 .buttonTextPrimary {
   font: normal normal bold 14px/19px Inter !important;
-  letter-spacing: 0px  !important;
+  letter-spacing: 0px !important;
   text-transform: none;
   color: rgb(6, 211, 215) !important;
 }
 
 .buttonTextSecondary {
   font: normal normal bold 14px/19px Inter !important;
-  letter-spacing: 0px  !important;
+  letter-spacing: 0px !important;
   color: #000 !important;
   text-transform: none;
 }
-
-
 
 @media screen and (max-width: 960px) {
   .dialogContainer {
@@ -128,7 +126,6 @@
     min-width: inherit !important;
   }
 }
-
 
 @media screen and (max-width: 320px) {
   .warningIcon {

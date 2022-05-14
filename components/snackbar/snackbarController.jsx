@@ -1,15 +1,15 @@
-import React, { Component } from "react";
-import { withStyles } from "@material-ui/core/styles";
+import React, { Component } from 'react';
+import { withStyles } from '@material-ui/core/styles';
 
-import Snackbar from "./snackbar.jsx";
+import Snackbar from './snackbar.jsx';
 
 import { ACTIONS } from '../../stores/constants';
 
-import stores from "../../stores";
+import stores from '../../stores';
 const emitter = stores.emitter;
 
-const styles = theme => ({
-  root: {}
+const styles = (theme) => ({
+  root: {},
 });
 
 class SnackbarController extends Component {
@@ -19,7 +19,7 @@ class SnackbarController extends Component {
     this.state = {
       open: false,
       snackbarType: null,
-      snackbarMessage: null
+      snackbarMessage: null,
     };
   }
 
@@ -33,11 +33,11 @@ class SnackbarController extends Component {
     // emitter.removeListener(ACTIONS.TX_SUBMITTED, this.showHash);
   }
 
-  showError = error => {
+  showError = (error) => {
     const snackbarObj = {
       snackbarMessage: null,
       snackbarType: null,
-      open: false
+      open: false,
     };
     this.setState(snackbarObj);
 
@@ -45,8 +45,8 @@ class SnackbarController extends Component {
     setTimeout(() => {
       const snackbarObj = {
         snackbarMessage: error.toString(),
-        snackbarType: "Error",
-        open: true
+        snackbarType: 'Error',
+        open: true,
       };
       that.setState(snackbarObj);
     });
@@ -56,7 +56,7 @@ class SnackbarController extends Component {
     const snackbarObj = {
       snackbarMessage: null,
       snackbarType: null,
-      open: false
+      open: false,
     };
     this.setState(snackbarObj);
 
@@ -64,8 +64,8 @@ class SnackbarController extends Component {
     setTimeout(() => {
       const snackbarObj = {
         snackbarMessage: txHash,
-        snackbarType: "Hash",
-        open: true
+        snackbarType: 'Hash',
+        open: true,
       };
       that.setState(snackbarObj);
     });

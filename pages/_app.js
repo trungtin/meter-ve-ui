@@ -14,7 +14,7 @@ import Configure from './configure';
 import stores from '../stores/index.js';
 
 import { ACTIONS } from '../stores/constants';
-import '../styles/global.css'
+import '../styles/global.css';
 
 export default function MyApp({ Component, pageProps }) {
   const router = useRouter();
@@ -45,7 +45,9 @@ export default function MyApp({ Component, pageProps }) {
   };
 
   useEffect(function () {
-    const localStorageDarkMode = window.localStorage.getItem('yearn.finance-dark-mode');
+    const localStorageDarkMode = window.localStorage.getItem(
+      'yearn.finance-dark-mode'
+    );
     changeTheme(localStorageDarkMode ? localStorageDarkMode === 'dark' : false);
   }, []);
 
@@ -56,8 +58,14 @@ export default function MyApp({ Component, pageProps }) {
     stores.dispatcher.dispatch({ type: ACTIONS.CONFIGURE });
 
     return () => {
-      stores.emitter.removeListener(ACTIONS.CONFIGURED_SS, stalbeSwapConfigureReturned);
-      stores.emitter.removeListener(ACTIONS.ACCOUNT_CONFIGURED, accountConfigureReturned);
+      stores.emitter.removeListener(
+        ACTIONS.CONFIGURED_SS,
+        stalbeSwapConfigureReturned
+      );
+      stores.emitter.removeListener(
+        ACTIONS.ACCOUNT_CONFIGURED,
+        accountConfigureReturned
+      );
     };
   }, []);
 
@@ -74,12 +82,15 @@ export default function MyApp({ Component, pageProps }) {
     <React.Fragment>
       <Head>
         <title>Solidly</title>
-        <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
+        <meta
+          name="viewport"
+          content="minimum-scale=1, initial-scale=1, width=device-width"
+        />
       </Head>
       <ThemeProvider theme={themeConfig}>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
-        { validateConfigured() && (
+        {validateConfigured() && (
           <Layout changeTheme={changeTheme}>
             <Component {...pageProps} changeTheme={changeTheme} />
           </Layout>

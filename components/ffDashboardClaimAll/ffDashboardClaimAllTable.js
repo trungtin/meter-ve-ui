@@ -2,11 +2,23 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { lighten, makeStyles } from '@material-ui/core/styles';
 import Skeleton from '@material-ui/lab/Skeleton';
-import { Grid, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TableSortLabel, Typography, Button, CircularProgress } from '@material-ui/core';
+import {
+  Grid,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  TableSortLabel,
+  Typography,
+  Button,
+  CircularProgress,
+} from '@material-ui/core';
 import BigNumber from 'bignumber.js';
 import classes from './ffDashboardClaimAll.module.css';
 
-import stores from '../../stores'
+import stores from '../../stores';
 import { ACTIONS } from '../../stores/constants';
 
 import { formatCurrency } from '../../utils';
@@ -26,7 +38,9 @@ function descendingComparator(a, b, orderBy) {
 }
 
 function getComparator(order, orderBy) {
-  return order === 'desc' ? (a, b) => descendingComparator(a, b, orderBy) : (a, b) => -descendingComparator(a, b, orderBy);
+  return order === 'desc'
+    ? (a, b) => descendingComparator(a, b, orderBy)
+    : (a, b) => -descendingComparator(a, b, orderBy);
 }
 
 function stableSort(array, comparator) {
@@ -52,7 +66,7 @@ const headCells = [
     numeric: true,
     disablePadding: false,
     label: '',
-  }
+  },
 ];
 
 const useStyles = makeStyles((theme) => ({
@@ -74,17 +88,14 @@ const useStyles = makeStyles((theme) => ({
     top: 20,
     width: 1,
   },
-  inline: {
-  },
+  inline: {},
   icon: {
     marginRight: '12px',
   },
   textSpaced: {
     lineHeight: '1.4',
   },
-  cell: {
-
-  },
+  cell: {},
   cellSuccess: {
     color: '#4eaf0a',
   },
@@ -120,7 +131,8 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     flexWrap: 'wrap',
     borderBottom: '1px solid rgba(128, 128, 128, 0.32)',
-    background: 'radial-gradient(circle, rgba(63,94,251,0.7) 0%, rgba(47,128,237,0.7) 48%) rgba(63,94,251,0.7) 100%',
+    background:
+      'radial-gradient(circle, rgba(63,94,251,0.7) 0%, rgba(47,128,237,0.7) 48%) rgba(63,94,251,0.7) 100%',
   },
   assetInfoError: {
     display: 'flex',
@@ -155,7 +167,7 @@ const useStyles = makeStyles((theme) => ({
     color: 'green',
   },
   imgLogo: {
-    marginRight: '0px'
+    marginRight: '0px',
   },
   tableContainer: {
     width: '100%',
@@ -172,7 +184,7 @@ const useStyles = makeStyles((theme) => ({
   actionButtonText: {
     fontWeight: '700 !important',
     fontSize: '13px !important',
-    textTransform: 'capitalize !important'
+    textTransform: 'capitalize !important',
   },
   loadingCircle: {
     marginLeft: '6px !important',
@@ -202,25 +214,43 @@ export default function EnhancedTable({ claimable, crv, ibEUR, rKP3R }) {
 
   const [order, setOrder] = React.useState('desc');
   const [orderBy, setOrderBy] = React.useState('balance');
-  const [claimLoading, setClaimLoading ] = React.useState(false)
-  const [claimedAsset, setClaimedAsset] = React.useState()
+  const [claimLoading, setClaimLoading] = React.useState(false);
+  const [claimedAsset, setClaimedAsset] = React.useState();
 
   React.useEffect(() => {
     const rewardClaimed = () => {
-      setClaimLoading(false)
-    }
+      setClaimLoading(false);
+    };
 
     stores.emitter.on(ACTIONS.FIXED_FOREX_CURVE_REWARD_CLAIMED, rewardClaimed);
-    stores.emitter.on(ACTIONS.FIXED_FOREX_DISTRIBUTION_REWARD_CLAIMED, rewardClaimed);
-    stores.emitter.on(ACTIONS.FIXED_FOREX_VESTING_REWARD_CLAIMED, rewardClaimed);
+    stores.emitter.on(
+      ACTIONS.FIXED_FOREX_DISTRIBUTION_REWARD_CLAIMED,
+      rewardClaimed
+    );
+    stores.emitter.on(
+      ACTIONS.FIXED_FOREX_VESTING_REWARD_CLAIMED,
+      rewardClaimed
+    );
     stores.emitter.on(ACTIONS.FIXED_FOREX_RKP3R_CLAIMED, rewardClaimed);
 
     stores.emitter.on(ACTIONS.ERROR, rewardClaimed);
     return () => {
-      stores.emitter.removeListener(ACTIONS.FIXED_FOREX_CURVE_REWARD_CLAIMED, rewardClaimed);
-      stores.emitter.removeListener(ACTIONS.FIXED_FOREX_DISTRIBUTION_REWARD_CLAIMED, rewardClaimed);
-      stores.emitter.removeListener(ACTIONS.FIXED_FOREX_VESTING_REWARD_CLAIMED, rewardClaimed);
-      stores.emitter.removeListener(ACTIONS.FIXED_FOREX_RKP3R_CLAIMED, rewardClaimed);
+      stores.emitter.removeListener(
+        ACTIONS.FIXED_FOREX_CURVE_REWARD_CLAIMED,
+        rewardClaimed
+      );
+      stores.emitter.removeListener(
+        ACTIONS.FIXED_FOREX_DISTRIBUTION_REWARD_CLAIMED,
+        rewardClaimed
+      );
+      stores.emitter.removeListener(
+        ACTIONS.FIXED_FOREX_VESTING_REWARD_CLAIMED,
+        rewardClaimed
+      );
+      stores.emitter.removeListener(
+        ACTIONS.FIXED_FOREX_RKP3R_CLAIMED,
+        rewardClaimed
+      );
       stores.emitter.removeListener(ACTIONS.ERROR, rewardClaimed);
     };
   }, []);
@@ -232,40 +262,91 @@ export default function EnhancedTable({ claimable, crv, ibEUR, rKP3R }) {
   };
 
   const onClaim = (asset) => {
-    setClaimLoading(true)
-    setClaimedAsset(asset)
+    setClaimLoading(true);
+    setClaimedAsset(asset);
 
-    if(asset.gauge) {
+    if (asset.gauge) {
       // this is a gauge
-      stores.dispatcher.dispatch({ type: ACTIONS.FIXED_FOREX_CLAIM_CURVE_REWARDS, content: { asset: asset.gauge }})
-    } else if(asset.type === 'Solidly' && asset.description === 'Fee Claim') {
-      stores.dispatcher.dispatch({ type: ACTIONS.FIXED_FOREX_CLAIM_DISTRIBUTION_REWARD, content: {  }})
-    } else if(asset.type === 'Solidly' && asset.description === 'Vesting Rewards') {
-      stores.dispatcher.dispatch({ type: ACTIONS.FIXED_FOREX_CLAIM_VESTING_REWARD, content: {  }})
-    } else if(asset.type === 'Solidly' && asset.description === 'Redeemable KP3R') {
-      stores.dispatcher.dispatch({ type: ACTIONS.FIXED_FOREX_CLAIM_RKP3R, content: {  }})
+      stores.dispatcher.dispatch({
+        type: ACTIONS.FIXED_FOREX_CLAIM_CURVE_REWARDS,
+        content: { asset: asset.gauge },
+      });
+    } else if (asset.type === 'Solidly' && asset.description === 'Fee Claim') {
+      stores.dispatcher.dispatch({
+        type: ACTIONS.FIXED_FOREX_CLAIM_DISTRIBUTION_REWARD,
+        content: {},
+      });
+    } else if (
+      asset.type === 'Solidly' &&
+      asset.description === 'Vesting Rewards'
+    ) {
+      stores.dispatcher.dispatch({
+        type: ACTIONS.FIXED_FOREX_CLAIM_VESTING_REWARD,
+        content: {},
+      });
+    } else if (
+      asset.type === 'Solidly' &&
+      asset.description === 'Redeemable KP3R'
+    ) {
+      stores.dispatcher.dispatch({
+        type: ACTIONS.FIXED_FOREX_CLAIM_RKP3R,
+        content: {},
+      });
     }
-  }
+  };
 
   if (!claimable) {
     return (
       <div className={classes.root}>
-        <Skeleton variant="rect" width={'100%'} height={40} className={classes.skelly1} />
-        <Skeleton variant="rect" width={'100%'} height={70} className={classes.skelly} />
-        <Skeleton variant="rect" width={'100%'} height={70} className={classes.skelly} />
-        <Skeleton variant="rect" width={'100%'} height={70} className={classes.skelly} />
-        <Skeleton variant="rect" width={'100%'} height={70} className={classes.skelly} />
-        <Skeleton variant="rect" width={'100%'} height={70} className={classes.skelly} />
+        <Skeleton
+          variant="rect"
+          width={'100%'}
+          height={40}
+          className={classes.skelly1}
+        />
+        <Skeleton
+          variant="rect"
+          width={'100%'}
+          height={70}
+          className={classes.skelly}
+        />
+        <Skeleton
+          variant="rect"
+          width={'100%'}
+          height={70}
+          className={classes.skelly}
+        />
+        <Skeleton
+          variant="rect"
+          width={'100%'}
+          height={70}
+          className={classes.skelly}
+        />
+        <Skeleton
+          variant="rect"
+          width={'100%'}
+          height={70}
+          className={classes.skelly}
+        />
+        <Skeleton
+          variant="rect"
+          width={'100%'}
+          height={70}
+          className={classes.skelly}
+        />
       </div>
     );
   }
 
   return (
     <div>
-
-
-      <TableContainer className={ classes.tableContainer }>
-        <Table className={classes.table} aria-labelledby="tableTitle" size={'medium'} aria-label="enhanced table">
+      <TableContainer className={classes.tableContainer}>
+        <Table
+          className={classes.table}
+          aria-labelledby="tableTitle"
+          size={'medium'}
+          aria-label="enhanced table"
+        >
           <TableBody>
             {stableSort(claimable, getComparator(order, orderBy)).map((row) => {
               if (!row) {
@@ -273,103 +354,150 @@ export default function EnhancedTable({ claimable, crv, ibEUR, rKP3R }) {
               }
 
               return (
-                <TableRow key={row.type+'_'+row.description}>
+                <TableRow key={row.type + '_' + row.description}>
                   <TableCell className={classes.cell}>
-
                     <div>
-
                       <Grid container spacing={0}>
-
-                        <Grid item lg={12} md={12} sm={12} xs={12} className={classes.endAsset}>
-
+                        <Grid
+                          item
+                          lg={12}
+                          md={12}
+                          sm={12}
+                          xs={12}
+                          className={classes.endAsset}
+                        >
                           <Grid container spacing={0}>
-
                             <Grid item lg={3} md={2} sm={2} xs={2}>
-                              {
-                              row?.type === 'Solidly' && <img className={ classes.imgLogo } src={`/images/ff-icon.svg`} width='35' height='35' alt='' />}
-                              {
-                              row?.type !== 'Solidly' && <img className={ classes.imgLogo } src={`https://raw.githubusercontent.com/yearn/yearn-assets/master/icons/multichain-tokens/1/${row.address}/logo-128.png`} width='35' height='35' alt='' />
-                              }
+                              {row?.type === 'Solidly' && (
+                                <img
+                                  className={classes.imgLogo}
+                                  src={`/images/ff-icon.svg`}
+                                  width="35"
+                                  height="35"
+                                  alt=""
+                                />
+                              )}
+                              {row?.type !== 'Solidly' && (
+                                <img
+                                  className={classes.imgLogo}
+                                  src={`https://raw.githubusercontent.com/yearn/yearn-assets/master/icons/multichain-tokens/1/${row.address}/logo-128.png`}
+                                  width="35"
+                                  height="35"
+                                  alt=""
+                                />
+                              )}
                             </Grid>
 
                             <Grid item lg={9} md={10} sm={10} xs={10}>
-                              <Typography variant="h2" className={classes.textSpaced}>
-                              { row?.type }
+                              <Typography
+                                variant="h2"
+                                className={classes.textSpaced}
+                              >
+                                {row?.type}
                               </Typography>
-                              <Typography variant="h5" className={classes.textSpaced} color='textSecondary'>
-                              { row?.description }
+                              <Typography
+                                variant="h5"
+                                className={classes.textSpaced}
+                                color="textSecondary"
+                              >
+                                {row?.description}
                               </Typography>
                             </Grid>
-
                           </Grid>
-
                         </Grid>
 
-                        <Grid item lg={12} md={12} sm={12} xs={12} className={classes.endAsset}>
-
+                        <Grid
+                          item
+                          lg={12}
+                          md={12}
+                          sm={12}
+                          xs={12}
+                          className={classes.endAsset}
+                        >
                           <Grid container spacing={0}>
-
                             <Grid item lg={9} md={9} sm={9} xs={9}>
-                              <Typography variant="h2" className={classes.textSpaced}>
-                                { formatCurrency(row?.earned) } { row.symbol }
+                              <Typography
+                                variant="h2"
+                                className={classes.textSpaced}
+                              >
+                                {formatCurrency(row?.earned)} {row.symbol}
                               </Typography>
-                              <Typography variant="h5" className={classes.textSpaced} color='textSecondary'>
-                                ${
-                                  row.symbol === 'CRV' &&
-                                  formatCurrency(BigNumber(row?.earned).times(crv?.price))
-                                }
-                                {
-                                  row.symbol === 'ibEUR' &&
-                                  formatCurrency(BigNumber(row?.earned).times(ibEUR?.price))
-                                }
-                                {
-                                  (row.symbol === 'rKP3R' || row.symbol === 'kp3R') &&
-                                  formatCurrency(BigNumber(row?.earned).times(rKP3R?.price))
-
-                                }
-                                {
-                                  !['CRV', 'ibEUR', 'rKP3R', 'kp3R'].includes(row.symbol) &&
-                                  formatCurrency(0)
-                                }
+                              <Typography
+                                variant="h5"
+                                className={classes.textSpaced}
+                                color="textSecondary"
+                              >
+                                $
+                                {row.symbol === 'CRV' &&
+                                  formatCurrency(
+                                    BigNumber(row?.earned).times(crv?.price)
+                                  )}
+                                {row.symbol === 'ibEUR' &&
+                                  formatCurrency(
+                                    BigNumber(row?.earned).times(ibEUR?.price)
+                                  )}
+                                {(row.symbol === 'rKP3R' ||
+                                  row.symbol === 'kp3R') &&
+                                  formatCurrency(
+                                    BigNumber(row?.earned).times(rKP3R?.price)
+                                  )}
+                                {!['CRV', 'ibEUR', 'rKP3R', 'kp3R'].includes(
+                                  row.symbol
+                                ) && formatCurrency(0)}
                               </Typography>
                             </Grid>
 
-                            <Grid item lg={3} md={3} sm={3} xs={3} className={classes.alignR}>
+                            <Grid
+                              item
+                              lg={3}
+                              md={3}
+                              sm={3}
+                              xs={3}
+                              className={classes.alignR}
+                            >
                               <Button
-                                className={ classes.buttonOverride }
-                                variant='contained'
-                                size='large'
-                                color='primary'
-                                disabled={ claimLoading && (!claimedAsset || claimedAsset.symbol === row.symbol) }
-                                onClick={ () => { onClaim(row) } }>
-                                <Typography className={ classes.actionButtonText }>{ claimLoading && (!claimedAsset || claimedAsset.symbol === row.symbol) ? `Claiming` : `Claim` }</Typography>
-                                { claimLoading && (!claimedAsset || claimedAsset.symbol === row.symbol) && <CircularProgress size={10} className={ classes.loadingCircle } /> }
+                                className={classes.buttonOverride}
+                                variant="contained"
+                                size="large"
+                                color="primary"
+                                disabled={
+                                  claimLoading &&
+                                  (!claimedAsset ||
+                                    claimedAsset.symbol === row.symbol)
+                                }
+                                onClick={() => {
+                                  onClaim(row);
+                                }}
+                              >
+                                <Typography
+                                  className={classes.actionButtonText}
+                                >
+                                  {claimLoading &&
+                                  (!claimedAsset ||
+                                    claimedAsset.symbol === row.symbol)
+                                    ? `Claiming`
+                                    : `Claim`}
+                                </Typography>
+                                {claimLoading &&
+                                  (!claimedAsset ||
+                                    claimedAsset.symbol === row.symbol) && (
+                                    <CircularProgress
+                                      size={10}
+                                      className={classes.loadingCircle}
+                                    />
+                                  )}
                               </Button>
-
                             </Grid>
 
                             <div className={classes.divider}></div>
-
                           </Grid>
-
                         </Grid>
-
                       </Grid>
-
-
                     </div>
 
-
-                    <div>
-
-
-                  </div>
-
+                    <div></div>
                   </TableCell>
-                  <TableCell className={classes.cell} align="left">
-
-
-                  </TableCell>
+                  <TableCell className={classes.cell} align="left"></TableCell>
                 </TableRow>
               );
             })}

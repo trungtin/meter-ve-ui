@@ -14,8 +14,8 @@
   padding: 24px;
   display: flex;
   flex-direction: column;
-  -webkit-box-shadow: 0 13px 30px 0 rgba(7,9,18,0.1) !important;
-  box-shadow: 0 13px 30px 0 rgba(7,9,18,0.1) !important;
+  -webkit-box-shadow: 0 13px 30px 0 rgba(7, 9, 18, 0.1) !important;
+  box-shadow: 0 13px 30px 0 rgba(7, 9, 18, 0.1) !important;
 }
 
 .smallerText {
@@ -39,7 +39,7 @@
   background: rgb(33, 43, 72);
   max-width: 80px;
   min-height: 50px;
-  padding: 20px 12px 4px 12px ;
+  padding: 20px 12px 4px 12px;
 }
 
 .massiveInputContainer {
@@ -260,7 +260,7 @@
 }
 
 .swapConfirmSide {
-  border: 1px solid rgba(128, 128, 128,  0.5);
+  border: 1px solid rgba(128, 128, 128, 0.5);
   border-radius: 10px;
   padding: 24px 6px;
 }
@@ -296,7 +296,6 @@
 }
 
 .textFlex {
-
 }
 
 .flexy2 {
@@ -359,7 +358,7 @@
 }
 
 .swapIconSubContainer {
-  background: #161B2C;
+  background: #161b2c;
   border-radius: 9px;
   height: 38px;
   z-index: 1;
@@ -450,7 +449,7 @@
 }
 
 .info {
-  border-left: 5px solid #2F80ED;
+  border-left: 5px solid #2f80ed;
 }
 
 .success {
@@ -526,7 +525,7 @@
 .depositInfoHeading {
   width: 100%;
   font-weight: 700 !important;
-  color: #06D3D7 !important;
+  color: #06d3d7 !important;
   padding-bottom: 15px !important;
   border-bottom: 1px solid rgba(126, 153, 176, 0.2);
   font-size: 14px !important;
@@ -579,7 +578,7 @@
 
 .line {
   flex: 1;
-  border-bottom: 1px dashed rgba(126,153,176,0.6);
+  border-bottom: 1px dashed rgba(126, 153, 176, 0.6);
   text-align: center;
   margin-top: -4px;
   position: relative;
@@ -594,7 +593,7 @@
 
 .stabIndicator {
   font-size: 13px !important;
-  color: #06D3D7;
+  color: #06d3d7;
 }
 
 .routeArrow {
@@ -608,7 +607,7 @@
 
 .routeArrowIcon {
   font-size: 13px !important;
-  color: #06D3D7;
+  color: #06d3d7;
 }
 
 .quoteLoader {

@@ -10,7 +10,7 @@
 
 .notConnectedContent {
   width: calc(100%) !important;
-  background: rgba(17,23,41,0.2) !important;
+  background: rgba(17, 23, 41, 0.2) !important;
   text-align: center;
   padding: 50px;
   height: calc(100vh);
@@ -49,7 +49,7 @@
 .mainDesc {
   margin: 20px auto 0px auto !important;
   text-align: left !important;
-  color: rgb(104,108,122);
+  color: rgb(104, 108, 122);
   font-size: 18px !important;
   font-family: 'Roboto', sans-serif !important;
   font-weight: 300 !important;
@@ -62,13 +62,13 @@
   font-size: 30px !important;
   font-family: 'Monument' !important;
   font-weight: 100 !important;
-  color: #FFF;
+  color: #fff;
 }
 
 .mainDescNC {
   margin: 30px auto !important;
   text-align: center !important;
-  color: #7E99B0;
+  color: #7e99b0;
   font-size: 18px !important;
   max-width: 800px;
   line-height: 1.8rem !important;
@@ -89,13 +89,13 @@
 }
 
 .buttonConnect {
-  background: rgba(6,211,215,0.3) !important;
-  color: rgba(6,211,215,1) !important;
+  background: rgba(6, 211, 215, 0.3) !important;
+  color: rgba(6, 211, 215, 1) !important;
   border-radius: 60px !important;
   padding: 12px 24px 14px 24px !important;
   font-weight: 700 !important;
   text-transform: none !important;
-  border: 1px solid rgba(6,211,215,1) !important;
+  border: 1px solid rgba(6, 211, 215, 1) !important;
   transform: scale(0.85);
   -webkit-transition: all 300ms ease-out;
   -moz-transition: all 300ms ease-out;
@@ -105,10 +105,10 @@
 }
 
 .buttonConnect:hover {
-  background: rgba(6,211,215,1) !important;
+  background: rgba(6, 211, 215, 1) !important;
   color: #111729 !important;
   text-transform: none !important;
-  border: 1px solid rgba(6,211,215,1) !important;
+  border: 1px solid rgba(6, 211, 215, 1) !important;
   transform: scale(0.9);
   -webkit-transition: all 300ms ease-out;
   -moz-transition: all 300ms ease-out;
@@ -118,7 +118,6 @@
 }
 
 @media screen and (max-width: 1600px) {
-
 }
 
 @media screen and (max-width: 1200px) {
@@ -128,7 +127,6 @@
 }
 
 @media screen and (max-width: 960px) {
-
 }
 
 @media screen and (max-width: 600px) {

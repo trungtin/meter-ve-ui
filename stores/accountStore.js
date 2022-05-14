@@ -1,17 +1,8 @@
 import async from 'async';
-import {
-  ACTIONS,
-  CONTRACTS,
-  FALLBACK_RPC
-} from './constants';
+import { ACTIONS, CONTRACTS, FALLBACK_RPC } from './constants';
 import Multicall from '@dopex-io/web3-multicall';
 
-import {
-  injected,
-  walletconnect,
-  walletlink,
-  network
-} from './connectors';
+import { injected, walletconnect, walletlink, network } from './connectors';
 
 import Web3 from 'web3';
 
@@ -49,7 +40,7 @@ class Store {
           default: {
           }
         }
-      }.bind(this),
+      }.bind(this)
     );
   }
 
@@ -68,7 +59,8 @@ class Store {
     injected.isAuthorized().then((isAuthorized) => {
       const { supportedChainIds } = injected;
       // fall back to ethereum mainnet if chainId undefined
-      const { chainId = process.env.NEXT_PUBLIC_CHAINID } = window.ethereum || {};
+      const { chainId = process.env.NEXT_PUBLIC_CHAINID } =
+        window.ethereum || {};
       const parsedChainId = parseInt(chainId, 16);
       const isChainSupported = supportedChainIds.includes(parsedChainId);
       if (!isChainSupported) {
@@ -82,7 +74,7 @@ class Store {
           .then((a) => {
             this.setStore({
               account: { address: a.account },
-              web3context: { library: { provider: a.provider } }
+              web3context: { library: { provider: a.provider } },
             });
             this.emitter.emit(ACTIONS.ACCOUNT_CONFIGURED);
           })
@@ -123,7 +115,7 @@ class Store {
     const res = window.ethereum.on('accountsChanged', function (accounts) {
       that.setStore({
         account: { address: accounts[0] },
-        web3context: { library: { provider: window.ethereum } }
+        web3context: { library: { provider: window.ethereum } },
       });
       that.emitter.emit(ACTIONS.ACCOUNT_CHANGED);
       that.emitter.emit(ACTIONS.ACCOUNT_CONFIGURED);
@@ -136,13 +128,13 @@ class Store {
 
     window.ethereum.on('chainChanged', function (chainId) {
       const supportedChainIds = [process.env.NEXT_PUBLIC_CHAINID];
-      const parsedChainId = (parseInt(chainId+'', 16)+'');
+      const parsedChainId = parseInt(chainId + '', 16) + '';
       const isChainSupported = supportedChainIds.includes(parsedChainId);
       that.setStore({ chainInvalid: !isChainSupported });
       that.emitter.emit(ACTIONS.ACCOUNT_CHANGED);
       that.emitter.emit(ACTIONS.ACCOUNT_CONFIGURED);
 
-      that.configure()
+      that.configure();
     });
   };
 
@@ -163,7 +155,7 @@ class Store {
     try {
       const web3 = await this.getWeb3Provider();
       const gasPrice = await web3.eth.getGasPrice();
-      const gasPriceInGwei = web3.utils.fromWei(gasPrice, "gwei");
+      const gasPriceInGwei = web3.utils.fromWei(gasPrice, 'gwei');
       return {
         standard: gasPriceInGwei,
         fast: gasPriceInGwei,
@@ -171,9 +163,7 @@ class Store {
       };
     } catch (e) {
       console.log(e);
-      return {
-
-      }
+      return {};
     }
   };
 
@@ -186,7 +176,7 @@ class Store {
     try {
       const web3 = await this.getWeb3Provider();
       const gasPrice = await web3.eth.getGasPrice();
-      const gasPriceInGwei = web3.utils.fromWei(gasPrice, "gwei");
+      const gasPriceInGwei = web3.utils.fromWei(gasPrice, 'gwei');
       return gasPriceInGwei;
     } catch (e) {
       console.log(e);
@@ -211,16 +201,16 @@ class Store {
   };
 
   getMulticall = async (fallback) => {
-    let web3 = await this.getWeb3Provider()
-    if(fallback) {
-      web3 = new Web3(new Web3.providers.HttpProvider(FALLBACK_RPC))
+    let web3 = await this.getWeb3Provider();
+    if (fallback) {
+      web3 = new Web3(new Web3.providers.HttpProvider(FALLBACK_RPC));
     }
 
     const multicall = new Multicall({
       multicallAddress: CONTRACTS.MULTICALL_ADDRESS,
       provider: web3,
-    })
-    return multicall
+    });
+    return multicall;
   };
 }
 

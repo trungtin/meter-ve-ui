@@ -1,239 +1,241 @@
 export const colors = {
-  blue: "#2D7DDB",
-  red: "#ed4337",
-  orange: "#ffb347",
-  lightBlack: "rgba(0, 0, 0, 0.87)"
+  blue: '#2D7DDB',
+  red: '#ed4337',
+  orange: '#ffb347',
+  lightBlack: 'rgba(0, 0, 0, 0.87)',
 };
 
 const coreTheme = {
   shape: {
-    borderRadius: "12px"
+    borderRadius: '12px',
   },
   typography: {
     fontFamily: [
-      "Inter",
-      "Arial",
-      "-apple-system",
-      "BlinkMacSystemFont",
+      'Inter',
+      'Arial',
+      '-apple-system',
+      'BlinkMacSystemFont',
       '"Segoe UI"',
-      "Roboto",
+      'Roboto',
       '"Helvetica Neue"',
-      "sans-serif",
+      'sans-serif',
       '"Apple Color Emoji"',
       '"Segoe UI Emoji"',
-      '"Segoe UI Symbol"'
-    ].join(","),
+      '"Segoe UI Symbol"',
+    ].join(','),
     h1: {
       // Portfolio balance numbers
-      fontSize: "32px",
+      fontSize: '32px',
       fontWeight: 800,
       lineHeight: 1.167,
-      ["@media (max-width:576px)"]: {
+      ['@media (max-width:576px)']: {
         // eslint-disable-line no-useless-computed-key
-        fontSize: "1.6rem"
-      }
+        fontSize: '1.6rem',
+      },
     },
     h2: {
       // Navigation tabs / section headers
-      fontSize: "16px",
+      fontSize: '16px',
       fontWeight: 700,
       lineHeight: 1.5,
-      ["@media (max-width:576px)"]: {
+      ['@media (max-width:576px)']: {
         // eslint-disable-line no-useless-computed-key
-        fontSize: "1rem"
-      }
+        fontSize: '1rem',
+      },
     },
     h3: {
       // yearn title text YEARN
       fontFamily: [
-        "Druk Wide Bold",
-        "Inter",
-        "Arial",
-        "-apple-system",
-        "BlinkMacSystemFont",
+        'Druk Wide Bold',
+        'Inter',
+        'Arial',
+        '-apple-system',
+        'BlinkMacSystemFont',
         '"Segoe UI"',
-        "Roboto",
+        'Roboto',
         '"Helvetica Neue"',
-        "sans-serif"
+        'sans-serif',
       ],
-      fontSize: "1.5rem",
+      fontSize: '1.5rem',
       fontWeight: 700,
       lineHeight: 1.167,
-      ["@media (max-width:576px)"]: {
+      ['@media (max-width:576px)']: {
         // eslint-disable-line no-useless-computed-key
-        fontSize: "1.2rem"
-      }
+        fontSize: '1.2rem',
+      },
     },
     h4: {
       // yearn title text finance
-      fontSize: "1.5rem",
-      letterSpacing: "0.3rem",
+      fontSize: '1.5rem',
+      letterSpacing: '0.3rem',
       fontWeight: 300,
       lineHeight: 1.167,
-      ["@media (max-width:576px)"]: {
+      ['@media (max-width:576px)']: {
         // eslint-disable-line no-useless-computed-key
-        fontSize: "1.2rem"
-      }
+        fontSize: '1.2rem',
+      },
     },
     h5: {
       // card headers
-      fontSize: "0.9rem",
+      fontSize: '0.9rem',
       fontWeight: 700,
       lineHeight: 1.167,
-      ["@media (max-width:576px)"]: {
+      ['@media (max-width:576px)']: {
         // eslint-disable-line no-useless-computed-key
-        fontSize: "0.7rem"
-      }
+        fontSize: '0.7rem',
+      },
     },
     h6: {
       // card headers
-      fontSize: "1.5rem",
+      fontSize: '1.5rem',
       fontWeight: 700,
       lineHeight: 1.167,
-      ["@media (max-width:576px)"]: {
+      ['@media (max-width:576px)']: {
         // eslint-disable-line no-useless-computed-key
-        fontSize: "1.2rem"
-      }
+        fontSize: '1.2rem',
+      },
     },
     subtitle1: {
-      fontSize: "0.9rem",
+      fontSize: '0.9rem',
       fontWeight: 300,
       lineHeight: 1.167,
-      ["@media (max-width:576px)"]: {
+      ['@media (max-width:576px)']: {
         // eslint-disable-line no-useless-computed-key
-        fontSize: "0.7rem"
-      }
+        fontSize: '0.7rem',
+      },
     },
     body1: {
-      fontSize: "1rem",
+      fontSize: '1rem',
       fontWeight: 300,
       lineHeight: 1.167,
-      ["@media (max-width:576px)"]: {
+      ['@media (max-width:576px)']: {
         // eslint-disable-line no-useless-computed-key
-        fontSize: "0.8rem"
-      }
-    }
+        fontSize: '0.8rem',
+      },
+    },
   },
   palette: {
     primary: {
-      main: "rgba(0, 0, 0, 0.87)"
+      main: 'rgba(0, 0, 0, 0.87)',
     },
     secondary: {
-      main: "#FFFFFF"
+      main: '#FFFFFF',
     },
     error: {
-      main: "#dc3545"
-    }
+      main: '#dc3545',
+    },
   },
   overrides: {
     MuiButton: {
       root: {
-        minWidth: "50px"
+        minWidth: '50px',
       },
       outlinedSizeSmall: {
-        fontSize: "0.7rem",
-        padding: "6px 9px",
-        ["@media (max-width:576px)"]: {
+        fontSize: '0.7rem',
+        padding: '6px 9px',
+        ['@media (max-width:576px)']: {
           // eslint-disable-line no-useless-computed-key
-          padding: "3px 0px"
-        }
+          padding: '3px 0px',
+        },
       },
       sizeLarge: {
-        padding: "19px 24px",
-        minWidth: "150px"
+        padding: '19px 24px',
+        minWidth: '150px',
       },
       textSizeLarge: {
-        fontSize: "2.4rem",
-        ["@media (max-width:576px)"]: {
+        fontSize: '2.4rem',
+        ['@media (max-width:576px)']: {
           // eslint-disable-line no-useless-computed-key
-          fontSize: "2rem"
-        }
-      }
+          fontSize: '2rem',
+        },
+      },
     },
     MuiDialog: {
       paperWidthSm: {
-        maxWidth: "800px",
-      }
+        maxWidth: '800px',
+      },
     },
     MuiToggleButton: {
       root: {
-        border: "none",
-        borderRadius: "12px",
+        border: 'none',
+        borderRadius: '12px',
       },
-      "&$selected": {
+      '&$selected': {
         border: '1px solid #06d3d7',
-        backgroundColor: 'rgba(0,0,0,0)'
-      }
+        backgroundColor: 'rgba(0,0,0,0)',
+      },
     },
     MuiSnackbar: {
       root: {
-        maxWidth: "calc(100vw - 24px)"
+        maxWidth: 'calc(100vw - 24px)',
       },
       anchorOriginBottomLeft: {
-        bottom: "12px",
-        left: "12px",
-        "@media (min-width: 960px)": {
-          bottom: "50px",
-          left: "80px"
-        }
-      }
+        bottom: '12px',
+        left: '12px',
+        '@media (min-width: 960px)': {
+          bottom: '50px',
+          left: '80px',
+        },
+      },
     },
     MuiAccordion: {
       root: {
-        margin: "0px",
-        "&:before": {
+        margin: '0px',
+        '&:before': {
           //underline color when textfield is inactive
-          backgroundColor: "none",
-          height: "0px"
+          backgroundColor: 'none',
+          height: '0px',
         },
-        "&$expanded": {
-          margin: "0px"
-        }
-      }
+        '&$expanded': {
+          margin: '0px',
+        },
+      },
     },
     MuiAccordionSummary: {
       root: {
-        padding: "0px 24px",
-        "@media (max-width:576px)": {
-          padding: "0px 6px"
-        }
+        padding: '0px 24px',
+        '@media (max-width:576px)': {
+          padding: '0px 6px',
+        },
       },
       content: {
-        margin: "0px !important"
-      }
+        margin: '0px !important',
+      },
     },
     MuiAccordionDetails: {
       root: {
-        padding: "0"
-      }
+        padding: '0',
+      },
     },
     MuiTableCell: {
       head: {
-        padding: "26px 24px"
+        padding: '26px 24px',
       },
       body: {
-        padding: "12px 24px",
-        borderBottom: "none"
-      }
+        padding: '12px 24px',
+        borderBottom: 'none',
+      },
     },
     MuiInput: {
       underline: {
-        '&:before': { //underline color when textfield is inactive
-          borderBottom: 'none !important'
+        '&:before': {
+          //underline color when textfield is inactive
+          borderBottom: 'none !important',
         },
-        '&:hover:not($disabled):before': { //underline color when hovered
-          borderBottom: 'none !important'
+        '&:hover:not($disabled):before': {
+          //underline color when hovered
+          borderBottom: 'none !important',
         },
-      }
+      },
     },
     Mui: {
       '&$disabled': {
         '&:before': {
-          borderBottom: 'none'
-        }
-      }
-    }
-  }
+          borderBottom: 'none',
+        },
+      },
+    },
+  },
 };
 
 export default coreTheme;
