@@ -7,7 +7,8 @@
     "build": "next build",
     "export": "next export",
     "build2": "next build && next export",
-    "start": "next start"
+    "start": "next start",
+    "typechain": "typechain --target web3-v1 --out-dir ./stores/types ./stores/abis/*.json"
   },
   "dependencies": {
     "@dopex-io/web3-multicall": "^0.1.5",
@@ -25,6 +26,7 @@
     "ethers": "5.4.5",
     "flux": "^4.0.1",
     "lottie-react": "^2.2.1",
+    "meterify": "^1.4.7",
     "moment": "^2.29.1",
     "next": "^12.1.6",
     "node-fetch": "^2.6.2",
@@ -42,7 +44,9 @@
     "trailingComma": "es5"
   },
   "devDependencies": {
+    "@typechain/web3-v1": "^6.0.0",
     "@types/react": "^18.0.9",
+    "typechain": "^8.0.0",
     "typescript": "^4.6.4"
   }
 }

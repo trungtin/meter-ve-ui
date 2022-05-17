@@ -1,4 +1,4 @@
-export const pairABI = [
+[
   {
     inputs: [],
     stateMutability: 'nonpayable',
@@ -1108,5 +1108,5 @@ export const pairABI = [
     ],
     stateMutability: 'nonpayable',
     type: 'function',
-  },
-];
+  }
+]
