@@ -298,20 +298,24 @@ export default function SSLiquidityCreate() {
   const onAssetSelect = async (type, value) => {
     if (type === 'amount0') {
       setAsset0(value);
-      const p = await stores.stableSwapStore.getPair(
-        value.address,
-        asset1.address,
-        stable
-      );
-      setPair(p);
+      if (asset1) {
+        const p = await stores.stableSwapStore.getPair(
+          value.address,
+          asset1.address,
+          stable
+        );
+        setPair(p);
+      }
     } else {
       setAsset1(value);
-      const p = await stores.stableSwapStore.getPair(
-        asset0.address,
-        value.address,
-        stable
-      );
-      setPair(p);
+      if (asset0) {
+        const p = await stores.stableSwapStore.getPair(
+          asset0.address,
+          value.address,
+          stable
+        );
+        setPair(p);
+      }
     }
   };
 

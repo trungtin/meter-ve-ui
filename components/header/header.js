@@ -335,6 +335,8 @@ function Header(props) {
     setAnchorEl(null);
   };
 
+  const desiredNetwork =
+    process.env.NEXT_PUBLIC_CHAINID == '83' ? 'Meter Testnet' : 'Meter Mainnet';
   return (
     <div>
       <div className={classes.headerContainer}>
@@ -354,7 +356,7 @@ function Header(props) {
             justifyContent: 'flex-end',
           }}
         >
-          {process.env.NEXT_PUBLIC_CHAINID == '4002' && (
+          {process.env.NEXT_PUBLIC_CHAINID == '83' && (
             <div className={classes.testnetDisclaimer}>
               <Typography className={classes.testnetDisclaimerText}>
                 Testnet
@@ -474,17 +476,14 @@ function Header(props) {
             <WrongNetworkIcon className={classes.networkIcon} />
             <Typography className={classes.ErrorTxt}>
               The chain you're connected to isn't supported. Please check that
-              your wallet is connected to Fantom Mainnet.
+              your wallet is connected to {desiredNetwork}.
             </Typography>
             <Button
               className={classes.switchNetworkBtn}
               variant="contained"
               onClick={() => switchChain()}
             >
-              Switch to{' '}
-              {process.env.NEXT_PUBLIC_CHAINID == '4002'
-                ? 'Fantom Testnet'
-                : 'Fantom Mainnet'}
+              Switch to {desiredNetwork}
             </Button>
           </div>
         </div>

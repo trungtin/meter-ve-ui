@@ -156,22 +156,28 @@ function Setup() {
 
   const onAssetSelect = (type, value) => {
     if (type === 'From') {
-      if (value.address === toAssetValue.address) {
-        setToAssetValue(fromAssetValue);
-        setFromAssetValue(toAssetValue);
-        calculateReceiveAmount(fromAmountValue, toAssetValue, fromAssetValue);
-      } else {
-        setFromAssetValue(value);
-        calculateReceiveAmount(fromAmountValue, value, toAssetValue);
+      // toAssetValue may be null, in that case do nothing
+      if (toAssetValue) {
+        if (value.address === toAssetValue.address) {
+          setToAssetValue(fromAssetValue);
+          setFromAssetValue(toAssetValue);
+          calculateReceiveAmount(fromAmountValue, toAssetValue, fromAssetValue);
+        } else {
+          setFromAssetValue(value);
+          calculateReceiveAmount(fromAmountValue, value, toAssetValue);
+        }
       }
     } else {
-      if (value.address === fromAssetValue.address) {
-        setFromAssetError(toAssetValue);
-        setToAssetValue(fromAssetValue);
-        calculateReceiveAmount(fromAmountValue, toAssetValue, fromAssetValue);
-      } else {
-        setToAssetValue(value);
-        calculateReceiveAmount(fromAmountValue, fromAssetValue, value);
+      // fromAssetValue may be null, in that case do nothing
+      if (fromAssetValue) {
+        if (value.address === fromAssetValue.address) {
+          setFromAssetError(toAssetValue);
+          setToAssetValue(fromAssetValue);
+          calculateReceiveAmount(fromAmountValue, toAssetValue, fromAssetValue);
+        } else {
+          setToAssetValue(value);
+          calculateReceiveAmount(fromAmountValue, fromAssetValue, value);
+        }
       }
     }
 

@@ -865,38 +865,42 @@ export default function ssLiquidityManage() {
   const onAssetSelect = async (type, value) => {
     if (type === 'amount0') {
       setAsset0(value);
-      const p = await stores.stableSwapStore.getPair(
-        value.address,
-        asset1.address,
-        stable
-      );
-      setPair(p);
-      callQuoteAddLiquidity(
-        amount0,
-        amount1,
-        priorityAsset,
-        stable,
-        p,
-        value,
-        asset1
-      );
+      if (asset1) {
+        const p = await stores.stableSwapStore.getPair(
+          value.address,
+          asset1.address,
+          stable
+        );
+        setPair(p);
+        callQuoteAddLiquidity(
+          amount0,
+          amount1,
+          priorityAsset,
+          stable,
+          p,
+          value,
+          asset1
+        );
+      }
     } else if (type === 'amount1') {
       setAsset1(value);
-      const p = await stores.stableSwapStore.getPair(
-        asset0.address,
-        value.address,
-        stable
-      );
-      setPair(p);
-      callQuoteAddLiquidity(
-        amount0,
-        amount1,
-        priorityAsset,
-        stable,
-        p,
-        asset0,
-        value
-      );
+      if (asset0) {
+        const p = await stores.stableSwapStore.getPair(
+          asset0.address,
+          value.address,
+          stable
+        );
+        setPair(p);
+        callQuoteAddLiquidity(
+          amount0,
+          amount1,
+          priorityAsset,
+          stable,
+          p,
+          asset0,
+          value
+        );
+      }
     } else if (type === 'withdraw') {
       setWithdrawAsset(value);
       const p = await stores.stableSwapStore.getPair(

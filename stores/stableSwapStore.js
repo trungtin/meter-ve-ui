@@ -1875,7 +1875,7 @@ class Store {
         account.address,
         deadline,
       ];
-      let sendValue = null;
+      let sendValue = 0;
 
       if (token0.address === 'FTM') {
         func = 'addLiquidityFTM';
@@ -2299,7 +2299,7 @@ class Store {
         account.address,
         deadline,
       ];
-      let sendValue = null;
+      let sendValue = 0;
 
       if (token0.address === 'FTM') {
         func = 'addLiquidityFTM';
@@ -2626,7 +2626,7 @@ class Store {
         account.address,
         deadline,
       ];
-      let sendValue = null;
+      let sendValue = 0;
 
       if (token0.address === 'FTM') {
         func = 'addLiquidityFTM';
@@ -3100,7 +3100,7 @@ class Store {
         account.address,
         deadline,
       ];
-      let sendValue = null;
+      let sendValue = 0;
 
       if (token0.address === 'FTM') {
         func = 'addLiquidityFTM';
@@ -4292,7 +4292,7 @@ class Store {
         account.address,
         deadline,
       ];
-      let sendValue = null;
+      let sendValue = 0;
 
       if (fromAsset.address === 'FTM') {
         func = 'swapExactFTMForTokens';
@@ -6059,7 +6059,9 @@ class Store {
     uuid,
     callback,
     paddGasCost,
-    sendValue = null
+    // meter rpc proxy will not be happy if we send the value in null
+    // so we send 0 instead
+    sendValue = 0
   ) => {
     // console.log(method)
     // console.log(params)
