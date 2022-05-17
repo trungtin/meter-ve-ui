@@ -70,6 +70,37 @@ export const pairABI = [
         type: 'address',
       },
       {
+        indexed: true,
+        internalType: 'address',
+        name: 'recipient',
+        type: 'address',
+      },
+      {
+        indexed: false,
+        internalType: 'uint256',
+        name: 'amount0',
+        type: 'uint256',
+      },
+      {
+        indexed: false,
+        internalType: 'uint256',
+        name: 'amount1',
+        type: 'uint256',
+      },
+    ],
+    name: 'Claim',
+    type: 'event',
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: true,
+        internalType: 'address',
+        name: 'sender',
+        type: 'address',
+      },
+      {
         indexed: false,
         internalType: 'uint256',
         name: 'amount0',
@@ -158,15 +189,15 @@ export const pairABI = [
     inputs: [
       {
         indexed: false,
-        internalType: 'uint112',
+        internalType: 'uint256',
         name: 'reserve0',
-        type: 'uint112',
+        type: 'uint256',
       },
       {
         indexed: false,
-        internalType: 'uint112',
+        internalType: 'uint256',
         name: 'reserve1',
-        type: 'uint112',
+        type: 'uint256',
       },
     ],
     name: 'Sync',
@@ -196,45 +227,6 @@ export const pairABI = [
     ],
     name: 'Transfer',
     type: 'event',
-  },
-  {
-    inputs: [],
-    name: 'DOMAIN_SEPARATOR',
-    outputs: [
-      {
-        internalType: 'bytes32',
-        name: '',
-        type: 'bytes32',
-      },
-    ],
-    stateMutability: 'view',
-    type: 'function',
-  },
-  {
-    inputs: [],
-    name: 'MINIMUM_LIQUIDITY',
-    outputs: [
-      {
-        internalType: 'uint256',
-        name: '',
-        type: 'uint256',
-      },
-    ],
-    stateMutability: 'view',
-    type: 'function',
-  },
-  {
-    inputs: [],
-    name: 'PERMIT_TYPEHASH',
-    outputs: [
-      {
-        internalType: 'bytes32',
-        name: '',
-        type: 'bytes32',
-      },
-    ],
-    stateMutability: 'view',
-    type: 'function',
   },
   {
     inputs: [
@@ -308,9 +300,9 @@ export const pairABI = [
     name: 'blockTimestampLast',
     outputs: [
       {
-        internalType: 'uint32',
+        internalType: 'uint256',
         name: '',
-        type: 'uint32',
+        type: 'uint256',
       },
     ],
     stateMutability: 'view',
@@ -343,20 +335,18 @@ export const pairABI = [
   {
     inputs: [],
     name: 'claimFees',
-    outputs: [],
-    stateMutability: 'nonpayable',
-    type: 'function',
-  },
-  {
-    inputs: [
+    outputs: [
       {
-        internalType: 'address',
-        name: 'recipient',
-        type: 'address',
+        internalType: 'uint256',
+        name: 'claimed0',
+        type: 'uint256',
+      },
+      {
+        internalType: 'uint256',
+        name: 'claimed1',
+        type: 'uint256',
       },
     ],
-    name: 'claimFeesFor',
-    outputs: [],
     stateMutability: 'nonpayable',
     type: 'function',
   },
@@ -401,40 +391,6 @@ export const pairABI = [
   {
     inputs: [
       {
-        internalType: 'uint256',
-        name: 'priceCumulativeStart',
-        type: 'uint256',
-      },
-      {
-        internalType: 'uint256',
-        name: 'priceCumulativeEnd',
-        type: 'uint256',
-      },
-      {
-        internalType: 'uint256',
-        name: 'timeElapsed',
-        type: 'uint256',
-      },
-      {
-        internalType: 'uint256',
-        name: 'amountIn',
-        type: 'uint256',
-      },
-    ],
-    name: 'computeAmountOut',
-    outputs: [
-      {
-        internalType: 'uint256',
-        name: 'amountOut',
-        type: 'uint256',
-      },
-    ],
-    stateMutability: 'pure',
-    type: 'function',
-  },
-  {
-    inputs: [
-      {
         internalType: 'address',
         name: 'tokenIn',
         type: 'address',
@@ -458,35 +414,22 @@ export const pairABI = [
   },
   {
     inputs: [],
-    name: 'currentBlockTimestamp',
-    outputs: [
-      {
-        internalType: 'uint32',
-        name: '',
-        type: 'uint32',
-      },
-    ],
-    stateMutability: 'view',
-    type: 'function',
-  },
-  {
-    inputs: [],
     name: 'currentCumulativePrices',
     outputs: [
       {
         internalType: 'uint256',
-        name: 'price0Cumulative',
+        name: 'reserve0Cumulative',
         type: 'uint256',
       },
       {
         internalType: 'uint256',
-        name: 'price1Cumulative',
+        name: 'reserve1Cumulative',
         type: 'uint256',
       },
       {
-        internalType: 'uint32',
+        internalType: 'uint256',
         name: 'blockTimestamp',
-        type: 'uint32',
+        type: 'uint256',
       },
     ],
     stateMutability: 'view',
@@ -547,19 +490,19 @@ export const pairABI = [
     name: 'getReserves',
     outputs: [
       {
-        internalType: 'uint112',
+        internalType: 'uint256',
         name: '_reserve0',
-        type: 'uint112',
+        type: 'uint256',
       },
       {
-        internalType: 'uint112',
+        internalType: 'uint256',
         name: '_reserve1',
-        type: 'uint112',
+        type: 'uint256',
       },
       {
-        internalType: 'uint32',
+        internalType: 'uint256',
         name: '_blockTimestampLast',
-        type: 'uint32',
+        type: 'uint256',
       },
     ],
     stateMutability: 'view',
@@ -598,24 +541,67 @@ export const pairABI = [
       {
         components: [
           {
-            internalType: 'uint32',
-            name: 'timestamp',
-            type: 'uint32',
-          },
-          {
             internalType: 'uint256',
-            name: 'price0Cumulative',
+            name: 'timestamp',
             type: 'uint256',
           },
           {
             internalType: 'uint256',
-            name: 'price1Cumulative',
+            name: 'reserve0Cumulative',
+            type: 'uint256',
+          },
+          {
+            internalType: 'uint256',
+            name: 'reserve1Cumulative',
             type: 'uint256',
           },
         ],
         internalType: 'struct BaseV1Pair.Observation',
         name: '',
         type: 'tuple',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [],
+    name: 'metadata',
+    outputs: [
+      {
+        internalType: 'uint256',
+        name: 'dec0',
+        type: 'uint256',
+      },
+      {
+        internalType: 'uint256',
+        name: 'dec1',
+        type: 'uint256',
+      },
+      {
+        internalType: 'uint256',
+        name: 'r0',
+        type: 'uint256',
+      },
+      {
+        internalType: 'uint256',
+        name: 'r1',
+        type: 'uint256',
+      },
+      {
+        internalType: 'bool',
+        name: 'st',
+        type: 'bool',
+      },
+      {
+        internalType: 'address',
+        name: 't0',
+        type: 'address',
+      },
+      {
+        internalType: 'address',
+        name: 't1',
+        type: 'address',
       },
     ],
     stateMutability: 'view',
@@ -696,31 +682,18 @@ export const pairABI = [
     name: 'observations',
     outputs: [
       {
-        internalType: 'uint32',
+        internalType: 'uint256',
         name: 'timestamp',
-        type: 'uint32',
-      },
-      {
-        internalType: 'uint256',
-        name: 'price0Cumulative',
         type: 'uint256',
       },
       {
         internalType: 'uint256',
-        name: 'price1Cumulative',
+        name: 'reserve0Cumulative',
         type: 'uint256',
       },
-    ],
-    stateMutability: 'view',
-    type: 'function',
-  },
-  {
-    inputs: [],
-    name: 'periodSize',
-    outputs: [
       {
         internalType: 'uint256',
-        name: '',
+        name: 'reserve1Cumulative',
         type: 'uint256',
       },
     ],
@@ -768,32 +741,6 @@ export const pairABI = [
     name: 'permit',
     outputs: [],
     stateMutability: 'nonpayable',
-    type: 'function',
-  },
-  {
-    inputs: [],
-    name: 'price0CumulativeLast',
-    outputs: [
-      {
-        internalType: 'uint256',
-        name: '',
-        type: 'uint256',
-      },
-    ],
-    stateMutability: 'view',
-    type: 'function',
-  },
-  {
-    inputs: [],
-    name: 'price1CumulativeLast',
-    outputs: [
-      {
-        internalType: 'uint256',
-        name: '',
-        type: 'uint256',
-      },
-    ],
-    stateMutability: 'view',
     type: 'function',
   },
   {
@@ -859,9 +806,9 @@ export const pairABI = [
     name: 'reserve0',
     outputs: [
       {
-        internalType: 'uint112',
+        internalType: 'uint256',
         name: '',
-        type: 'uint112',
+        type: 'uint256',
       },
     ],
     stateMutability: 'view',
@@ -869,7 +816,7 @@ export const pairABI = [
   },
   {
     inputs: [],
-    name: 'reserve0Last',
+    name: 'reserve0CumulativeLast',
     outputs: [
       {
         internalType: 'uint256',
@@ -885,9 +832,9 @@ export const pairABI = [
     name: 'reserve1',
     outputs: [
       {
-        internalType: 'uint112',
+        internalType: 'uint256',
         name: '',
-        type: 'uint112',
+        type: 'uint256',
       },
     ],
     stateMutability: 'view',
@@ -895,7 +842,7 @@ export const pairABI = [
   },
   {
     inputs: [],
-    name: 'reserve1Last',
+    name: 'reserve1CumulativeLast',
     outputs: [
       {
         internalType: 'uint256',
@@ -1069,6 +1016,24 @@ export const pairABI = [
     inputs: [],
     name: 'token1',
     outputs: [
+      {
+        internalType: 'address',
+        name: '',
+        type: 'address',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [],
+    name: 'tokens',
+    outputs: [
+      {
+        internalType: 'address',
+        name: '',
+        type: 'address',
+      },
       {
         internalType: 'address',
         name: '',

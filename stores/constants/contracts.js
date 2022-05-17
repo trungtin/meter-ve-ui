@@ -14,9 +14,9 @@ export const VE_TOKEN_DECIMALS = 18;
 export const VE_TOKEN_LOGO = 'https://prod.solidly.exchange/Solidly-O.svg';
 export const VE_TOKEN_ABI = abis.veTokenABI;
 
-export const WFTM_ADDRESS = '0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83';
-export const WFTM_NAME = 'Wrapped Fantom';
-export const WFTM_SYMBOL = 'WFTM';
+export const WFTM_ADDRESS = '0x687A6294D0D6d63e751A059bf1ca68E4AE7B13E2';
+export const WFTM_NAME = 'Meter';
+export const WFTM_SYMBOL = 'MTR';
 export const WFTM_DECIMALS = 18;
 export const WFTM_ABI = abis.wftmABI;
 
@@ -40,7 +40,7 @@ export const VOTER_ADDRESS = '0xdC819F5d05a6859D2faCbB4A44E5aB105762dbaE';
 export const VOTER_ABI = abis.voterABI;
 
 export const LIBRARY_ADDRESS = '0x0f68551237a7effe35600524c0dd4989bf8208e9';
-export const LIBRARY_ABI = abis.solidlyLibraryABI;
+export const LIBRARY_ABI = abis.libraryABI;
 
 export const ERC20_ABI = abis.erc20ABI;
 export const PAIR_ABI = abis.pairABI;

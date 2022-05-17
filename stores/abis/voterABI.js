@@ -1,10 +1,26 @@
 export const voterABI = [
   {
     inputs: [
-      { internalType: 'address', name: '__ve', type: 'address' },
-      { internalType: 'address', name: '_factory', type: 'address' },
-      { internalType: 'address', name: '_gauges', type: 'address' },
-      { internalType: 'address', name: '_bribes', type: 'address' },
+      {
+        internalType: 'address',
+        name: '__ve',
+        type: 'address',
+      },
+      {
+        internalType: 'address',
+        name: '_factory',
+        type: 'address',
+      },
+      {
+        internalType: 'address',
+        name: '_gauges',
+        type: 'address',
+      },
+      {
+        internalType: 'address',
+        name: '_bribes',
+        type: 'address',
+      },
     ],
     stateMutability: 'nonpayable',
     type: 'constructor',
@@ -56,7 +72,12 @@ export const voterABI = [
   {
     anonymous: false,
     inputs: [
-      { indexed: true, internalType: 'address', name: 'lp', type: 'address' },
+      {
+        indexed: true,
+        internalType: 'address',
+        name: 'lp',
+        type: 'address',
+      },
       {
         indexed: true,
         internalType: 'address',
@@ -150,9 +171,27 @@ export const voterABI = [
         name: 'bribe',
         type: 'address',
       },
-      { indexed: true, internalType: 'address', name: 'pool', type: 'address' },
+      {
+        indexed: true,
+        internalType: 'address',
+        name: 'pool',
+        type: 'address',
+      },
     ],
     name: 'GaugeCreated',
+    type: 'event',
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: true,
+        internalType: 'address',
+        name: 'minter',
+        type: 'address',
+      },
+    ],
+    name: 'Initialize',
     type: 'event',
   },
   {
@@ -208,7 +247,31 @@ export const voterABI = [
   {
     anonymous: false,
     inputs: [
-      { indexed: true, internalType: 'address', name: 'lp', type: 'address' },
+      {
+        indexed: true,
+        internalType: 'address',
+        name: 'whitelister',
+        type: 'address',
+      },
+      {
+        indexed: true,
+        internalType: 'address',
+        name: 'token',
+        type: 'address',
+      },
+    ],
+    name: 'Whitelisted',
+    type: 'event',
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: true,
+        internalType: 'address',
+        name: 'lp',
+        type: 'address',
+      },
       {
         indexed: true,
         internalType: 'address',
@@ -234,14 +297,28 @@ export const voterABI = [
   {
     inputs: [],
     name: '_ve',
-    outputs: [{ internalType: 'address', name: '', type: 'address' }],
+    outputs: [
+      {
+        internalType: 'address',
+        name: '',
+        type: 'address',
+      },
+    ],
     stateMutability: 'view',
     type: 'function',
   },
   {
     inputs: [
-      { internalType: 'uint256', name: 'tokenId', type: 'uint256' },
-      { internalType: 'address', name: 'account', type: 'address' },
+      {
+        internalType: 'uint256',
+        name: 'tokenId',
+        type: 'uint256',
+      },
+      {
+        internalType: 'address',
+        name: 'account',
+        type: 'address',
+      },
     ],
     name: 'attachTokenToGauge',
     outputs: [],
@@ -251,22 +328,52 @@ export const voterABI = [
   {
     inputs: [],
     name: 'bribefactory',
-    outputs: [{ internalType: 'address', name: '', type: 'address' }],
-    stateMutability: 'view',
-    type: 'function',
-  },
-  {
-    inputs: [{ internalType: 'address', name: '', type: 'address' }],
-    name: 'bribes',
-    outputs: [{ internalType: 'address', name: '', type: 'address' }],
+    outputs: [
+      {
+        internalType: 'address',
+        name: '',
+        type: 'address',
+      },
+    ],
     stateMutability: 'view',
     type: 'function',
   },
   {
     inputs: [
-      { internalType: 'address[]', name: '_bribes', type: 'address[]' },
-      { internalType: 'address[][]', name: '_tokens', type: 'address[][]' },
-      { internalType: 'uint256', name: '_tokenId', type: 'uint256' },
+      {
+        internalType: 'address',
+        name: '',
+        type: 'address',
+      },
+    ],
+    name: 'bribes',
+    outputs: [
+      {
+        internalType: 'address',
+        name: '',
+        type: 'address',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        internalType: 'address[]',
+        name: '_bribes',
+        type: 'address[]',
+      },
+      {
+        internalType: 'address[][]',
+        name: '_tokens',
+        type: 'address[][]',
+      },
+      {
+        internalType: 'uint256',
+        name: '_tokenId',
+        type: 'uint256',
+      },
     ],
     name: 'claimBribes',
     outputs: [],
@@ -275,9 +382,21 @@ export const voterABI = [
   },
   {
     inputs: [
-      { internalType: 'address[]', name: '_fees', type: 'address[]' },
-      { internalType: 'address[][]', name: '_tokens', type: 'address[][]' },
-      { internalType: 'uint256', name: '_tokenId', type: 'uint256' },
+      {
+        internalType: 'address[]',
+        name: '_fees',
+        type: 'address[]',
+      },
+      {
+        internalType: 'address[][]',
+        name: '_tokens',
+        type: 'address[][]',
+      },
+      {
+        internalType: 'uint256',
+        name: '_tokenId',
+        type: 'uint256',
+      },
     ],
     name: 'claimFees',
     outputs: [],
@@ -286,8 +405,16 @@ export const voterABI = [
   },
   {
     inputs: [
-      { internalType: 'address[]', name: '_gauges', type: 'address[]' },
-      { internalType: 'address[][]', name: '_tokens', type: 'address[][]' },
+      {
+        internalType: 'address[]',
+        name: '_gauges',
+        type: 'address[]',
+      },
+      {
+        internalType: 'address[][]',
+        name: '_tokens',
+        type: 'address[][]',
+      },
     ],
     name: 'claimRewards',
     outputs: [],
@@ -295,23 +422,55 @@ export const voterABI = [
     type: 'function',
   },
   {
-    inputs: [{ internalType: 'address', name: '', type: 'address' }],
+    inputs: [
+      {
+        internalType: 'address',
+        name: '',
+        type: 'address',
+      },
+    ],
     name: 'claimable',
-    outputs: [{ internalType: 'uint256', name: '', type: 'uint256' }],
+    outputs: [
+      {
+        internalType: 'uint256',
+        name: '',
+        type: 'uint256',
+      },
+    ],
     stateMutability: 'view',
     type: 'function',
   },
   {
-    inputs: [{ internalType: 'address', name: '_pool', type: 'address' }],
+    inputs: [
+      {
+        internalType: 'address',
+        name: '_pool',
+        type: 'address',
+      },
+    ],
     name: 'createGauge',
-    outputs: [{ internalType: 'address', name: '', type: 'address' }],
+    outputs: [
+      {
+        internalType: 'address',
+        name: '',
+        type: 'address',
+      },
+    ],
     stateMutability: 'nonpayable',
     type: 'function',
   },
   {
     inputs: [
-      { internalType: 'uint256', name: 'tokenId', type: 'uint256' },
-      { internalType: 'address', name: 'account', type: 'address' },
+      {
+        internalType: 'uint256',
+        name: 'tokenId',
+        type: 'uint256',
+      },
+      {
+        internalType: 'address',
+        name: 'account',
+        type: 'address',
+      },
     ],
     name: 'detachTokenFromGauge',
     outputs: [],
@@ -319,14 +478,13 @@ export const voterABI = [
     type: 'function',
   },
   {
-    inputs: [{ internalType: 'address[]', name: '_gauges', type: 'address[]' }],
-    name: 'distribute',
-    outputs: [],
-    stateMutability: 'nonpayable',
-    type: 'function',
-  },
-  {
-    inputs: [{ internalType: 'address', name: '_gauge', type: 'address' }],
+    inputs: [
+      {
+        internalType: 'address[]',
+        name: '_gauges',
+        type: 'address[]',
+      },
+    ],
     name: 'distribute',
     outputs: [],
     stateMutability: 'nonpayable',
@@ -334,8 +492,29 @@ export const voterABI = [
   },
   {
     inputs: [
-      { internalType: 'uint256', name: 'start', type: 'uint256' },
-      { internalType: 'uint256', name: 'finish', type: 'uint256' },
+      {
+        internalType: 'address',
+        name: '_gauge',
+        type: 'address',
+      },
+    ],
+    name: 'distribute',
+    outputs: [],
+    stateMutability: 'nonpayable',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        internalType: 'uint256',
+        name: 'start',
+        type: 'uint256',
+      },
+      {
+        internalType: 'uint256',
+        name: 'finish',
+        type: 'uint256',
+      },
     ],
     name: 'distribute',
     outputs: [],
@@ -350,7 +529,13 @@ export const voterABI = [
     type: 'function',
   },
   {
-    inputs: [{ internalType: 'address[]', name: '_gauges', type: 'address[]' }],
+    inputs: [
+      {
+        internalType: 'address[]',
+        name: '_gauges',
+        type: 'address[]',
+      },
+    ],
     name: 'distributeFees',
     outputs: [],
     stateMutability: 'nonpayable',
@@ -365,9 +550,21 @@ export const voterABI = [
   },
   {
     inputs: [
-      { internalType: 'uint256', name: 'tokenId', type: 'uint256' },
-      { internalType: 'address', name: 'account', type: 'address' },
-      { internalType: 'uint256', name: 'amount', type: 'uint256' },
+      {
+        internalType: 'uint256',
+        name: 'tokenId',
+        type: 'uint256',
+      },
+      {
+        internalType: 'address',
+        name: 'account',
+        type: 'address',
+      },
+      {
+        internalType: 'uint256',
+        name: 'amount',
+        type: 'uint256',
+      },
     ],
     name: 'emitDeposit',
     outputs: [],
@@ -376,9 +573,21 @@ export const voterABI = [
   },
   {
     inputs: [
-      { internalType: 'uint256', name: 'tokenId', type: 'uint256' },
-      { internalType: 'address', name: 'account', type: 'address' },
-      { internalType: 'uint256', name: 'amount', type: 'uint256' },
+      {
+        internalType: 'uint256',
+        name: 'tokenId',
+        type: 'uint256',
+      },
+      {
+        internalType: 'address',
+        name: 'account',
+        type: 'address',
+      },
+      {
+        internalType: 'uint256',
+        name: 'amount',
+        type: 'uint256',
+      },
     ],
     name: 'emitWithdraw',
     outputs: [],
@@ -388,28 +597,60 @@ export const voterABI = [
   {
     inputs: [],
     name: 'factory',
-    outputs: [{ internalType: 'address', name: '', type: 'address' }],
+    outputs: [
+      {
+        internalType: 'address',
+        name: '',
+        type: 'address',
+      },
+    ],
     stateMutability: 'view',
     type: 'function',
   },
   {
     inputs: [],
     name: 'gaugefactory',
-    outputs: [{ internalType: 'address', name: '', type: 'address' }],
-    stateMutability: 'view',
-    type: 'function',
-  },
-  {
-    inputs: [{ internalType: 'address', name: '', type: 'address' }],
-    name: 'gauges',
-    outputs: [{ internalType: 'address', name: '', type: 'address' }],
+    outputs: [
+      {
+        internalType: 'address',
+        name: '',
+        type: 'address',
+      },
+    ],
     stateMutability: 'view',
     type: 'function',
   },
   {
     inputs: [
-      { internalType: 'address[]', name: '_tokens', type: 'address[]' },
-      { internalType: 'address', name: '_minter', type: 'address' },
+      {
+        internalType: 'address',
+        name: '',
+        type: 'address',
+      },
+    ],
+    name: 'gauges',
+    outputs: [
+      {
+        internalType: 'address',
+        name: '',
+        type: 'address',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        internalType: 'address[]',
+        name: '_tokens',
+        type: 'address[]',
+      },
+      {
+        internalType: 'address',
+        name: '_minter',
+        type: 'address',
+      },
     ],
     name: 'initialize',
     outputs: [],
@@ -417,80 +658,178 @@ export const voterABI = [
     type: 'function',
   },
   {
-    inputs: [{ internalType: 'address', name: '', type: 'address' }],
+    inputs: [
+      {
+        internalType: 'address',
+        name: '',
+        type: 'address',
+      },
+    ],
     name: 'isGauge',
-    outputs: [{ internalType: 'bool', name: '', type: 'bool' }],
+    outputs: [
+      {
+        internalType: 'bool',
+        name: '',
+        type: 'bool',
+      },
+    ],
     stateMutability: 'view',
     type: 'function',
   },
   {
-    inputs: [{ internalType: 'address', name: '', type: 'address' }],
+    inputs: [
+      {
+        internalType: 'address',
+        name: '',
+        type: 'address',
+      },
+    ],
     name: 'isWhitelisted',
-    outputs: [{ internalType: 'bool', name: '', type: 'bool' }],
+    outputs: [
+      {
+        internalType: 'bool',
+        name: '',
+        type: 'bool',
+      },
+    ],
     stateMutability: 'view',
     type: 'function',
   },
   {
     inputs: [],
     name: 'length',
-    outputs: [{ internalType: 'uint256', name: '', type: 'uint256' }],
+    outputs: [
+      {
+        internalType: 'uint256',
+        name: '',
+        type: 'uint256',
+      },
+    ],
     stateMutability: 'view',
     type: 'function',
   },
   {
     inputs: [],
     name: 'listing_fee',
-    outputs: [{ internalType: 'uint256', name: '', type: 'uint256' }],
+    outputs: [
+      {
+        internalType: 'uint256',
+        name: '',
+        type: 'uint256',
+      },
+    ],
     stateMutability: 'view',
     type: 'function',
   },
   {
     inputs: [],
     name: 'minter',
-    outputs: [{ internalType: 'address', name: '', type: 'address' }],
+    outputs: [
+      {
+        internalType: 'address',
+        name: '',
+        type: 'address',
+      },
+    ],
     stateMutability: 'view',
     type: 'function',
   },
   {
-    inputs: [{ internalType: 'uint256', name: 'amount', type: 'uint256' }],
+    inputs: [
+      {
+        internalType: 'uint256',
+        name: 'amount',
+        type: 'uint256',
+      },
+    ],
     name: 'notifyRewardAmount',
     outputs: [],
     stateMutability: 'nonpayable',
     type: 'function',
   },
   {
-    inputs: [{ internalType: 'uint256', name: '_tokenId', type: 'uint256' }],
+    inputs: [
+      {
+        internalType: 'uint256',
+        name: '_tokenId',
+        type: 'uint256',
+      },
+    ],
     name: 'poke',
     outputs: [],
     stateMutability: 'nonpayable',
     type: 'function',
   },
   {
-    inputs: [{ internalType: 'address', name: '', type: 'address' }],
+    inputs: [
+      {
+        internalType: 'address',
+        name: '',
+        type: 'address',
+      },
+    ],
     name: 'poolForGauge',
-    outputs: [{ internalType: 'address', name: '', type: 'address' }],
+    outputs: [
+      {
+        internalType: 'address',
+        name: '',
+        type: 'address',
+      },
+    ],
     stateMutability: 'view',
     type: 'function',
   },
   {
     inputs: [
-      { internalType: 'uint256', name: '', type: 'uint256' },
-      { internalType: 'uint256', name: '', type: 'uint256' },
+      {
+        internalType: 'uint256',
+        name: '',
+        type: 'uint256',
+      },
+      {
+        internalType: 'uint256',
+        name: '',
+        type: 'uint256',
+      },
     ],
     name: 'poolVote',
-    outputs: [{ internalType: 'address', name: '', type: 'address' }],
+    outputs: [
+      {
+        internalType: 'address',
+        name: '',
+        type: 'address',
+      },
+    ],
     stateMutability: 'view',
     type: 'function',
   },
   {
-    inputs: [{ internalType: 'uint256', name: '', type: 'uint256' }],
+    inputs: [
+      {
+        internalType: 'uint256',
+        name: '',
+        type: 'uint256',
+      },
+    ],
     name: 'pools',
-    outputs: [{ internalType: 'address', name: '', type: 'address' }],
+    outputs: [
+      {
+        internalType: 'address',
+        name: '',
+        type: 'address',
+      },
+    ],
     stateMutability: 'view',
     type: 'function',
   },
   {
-    inputs: [{ internalType: 'uint256', name: '_tokenId', type: 'uint256' }],
+    inputs: [
+      {
+        internalType: 'uint256',
+        name: '_tokenId',
+        type: 'uint256',
+      },
+    ],
     name: 'reset',
     outputs: [],
     stateMutability: 'nonpayable',
@@ -499,7 +838,13 @@ export const voterABI = [
   {
     inputs: [],
     name: 'totalWeight',
-    outputs: [{ internalType: 'uint256', name: '', type: 'uint256' }],
+    outputs: [
+      {
+        internalType: 'uint256',
+        name: '',
+        type: 'uint256',
+      },
+    ],
     stateMutability: 'view',
     type: 'function',
   },
@@ -511,7 +856,13 @@ export const voterABI = [
     type: 'function',
   },
   {
-    inputs: [{ internalType: 'address[]', name: '_gauges', type: 'address[]' }],
+    inputs: [
+      {
+        internalType: 'address[]',
+        name: '_gauges',
+        type: 'address[]',
+      },
+    ],
     name: 'updateFor',
     outputs: [],
     stateMutability: 'nonpayable',
@@ -519,8 +870,16 @@ export const voterABI = [
   },
   {
     inputs: [
-      { internalType: 'uint256', name: 'start', type: 'uint256' },
-      { internalType: 'uint256', name: 'end', type: 'uint256' },
+      {
+        internalType: 'uint256',
+        name: 'start',
+        type: 'uint256',
+      },
+      {
+        internalType: 'uint256',
+        name: 'end',
+        type: 'uint256',
+      },
     ],
     name: 'updateForRange',
     outputs: [],
@@ -528,24 +887,54 @@ export const voterABI = [
     type: 'function',
   },
   {
-    inputs: [{ internalType: 'address', name: '_gauge', type: 'address' }],
+    inputs: [
+      {
+        internalType: 'address',
+        name: '_gauge',
+        type: 'address',
+      },
+    ],
     name: 'updateGauge',
     outputs: [],
     stateMutability: 'nonpayable',
     type: 'function',
   },
   {
-    inputs: [{ internalType: 'uint256', name: '', type: 'uint256' }],
+    inputs: [
+      {
+        internalType: 'uint256',
+        name: '',
+        type: 'uint256',
+      },
+    ],
     name: 'usedWeights',
-    outputs: [{ internalType: 'uint256', name: '', type: 'uint256' }],
+    outputs: [
+      {
+        internalType: 'uint256',
+        name: '',
+        type: 'uint256',
+      },
+    ],
     stateMutability: 'view',
     type: 'function',
   },
   {
     inputs: [
-      { internalType: 'uint256', name: 'tokenId', type: 'uint256' },
-      { internalType: 'address[]', name: '_poolVote', type: 'address[]' },
-      { internalType: 'int256[]', name: '_weights', type: 'int256[]' },
+      {
+        internalType: 'uint256',
+        name: 'tokenId',
+        type: 'uint256',
+      },
+      {
+        internalType: 'address[]',
+        name: '_poolVote',
+        type: 'address[]',
+      },
+      {
+        internalType: 'int256[]',
+        name: '_weights',
+        type: 'int256[]',
+      },
     ],
     name: 'vote',
     outputs: [],
@@ -554,25 +943,59 @@ export const voterABI = [
   },
   {
     inputs: [
-      { internalType: 'uint256', name: '', type: 'uint256' },
-      { internalType: 'address', name: '', type: 'address' },
+      {
+        internalType: 'uint256',
+        name: '',
+        type: 'uint256',
+      },
+      {
+        internalType: 'address',
+        name: '',
+        type: 'address',
+      },
     ],
     name: 'votes',
-    outputs: [{ internalType: 'int256', name: '', type: 'int256' }],
-    stateMutability: 'view',
-    type: 'function',
-  },
-  {
-    inputs: [{ internalType: 'address', name: '', type: 'address' }],
-    name: 'weights',
-    outputs: [{ internalType: 'int256', name: '', type: 'int256' }],
+    outputs: [
+      {
+        internalType: 'int256',
+        name: '',
+        type: 'int256',
+      },
+    ],
     stateMutability: 'view',
     type: 'function',
   },
   {
     inputs: [
-      { internalType: 'address', name: '_token', type: 'address' },
-      { internalType: 'uint256', name: '_tokenId', type: 'uint256' },
+      {
+        internalType: 'address',
+        name: '',
+        type: 'address',
+      },
+    ],
+    name: 'weights',
+    outputs: [
+      {
+        internalType: 'int256',
+        name: '',
+        type: 'int256',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        internalType: 'address',
+        name: '_token',
+        type: 'address',
+      },
+      {
+        internalType: 'uint256',
+        name: '_tokenId',
+        type: 'uint256',
+      },
     ],
     name: 'whitelist',
     outputs: [],

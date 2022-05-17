@@ -1,11 +1,21 @@
 export const factoryABI = [
   {
-    inputs: [
-      { internalType: 'address', name: '_feeToSetter', type: 'address' },
-    ],
-    payable: false,
+    inputs: [],
     stateMutability: 'nonpayable',
     type: 'constructor',
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: true,
+        internalType: 'address',
+        name: 'pauser',
+        type: 'address',
+      },
+    ],
+    name: 'AcceptPauser',
+    type: 'event',
   },
   {
     anonymous: false,
@@ -24,92 +34,253 @@ export const factoryABI = [
       },
       {
         indexed: false,
+        internalType: 'bool',
+        name: 'stable',
+        type: 'bool',
+      },
+      {
+        indexed: false,
         internalType: 'address',
         name: 'pair',
         type: 'address',
       },
-      { indexed: false, internalType: 'uint256', name: '', type: 'uint256' },
+      {
+        indexed: false,
+        internalType: 'uint256',
+        name: '',
+        type: 'uint256',
+      },
     ],
     name: 'PairCreated',
     type: 'event',
   },
   {
-    constant: true,
-    inputs: [{ internalType: 'uint256', name: '', type: 'uint256' }],
+    anonymous: false,
+    inputs: [
+      {
+        indexed: true,
+        internalType: 'address',
+        name: 'pendingPauser',
+        type: 'address',
+      },
+    ],
+    name: 'SetPauser',
+    type: 'event',
+  },
+  {
+    inputs: [],
+    name: 'acceptPauser',
+    outputs: [],
+    stateMutability: 'nonpayable',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        internalType: 'uint256',
+        name: '',
+        type: 'uint256',
+      },
+    ],
     name: 'allPairs',
-    outputs: [{ internalType: 'address', name: '', type: 'address' }],
-    payable: false,
+    outputs: [
+      {
+        internalType: 'address',
+        name: '',
+        type: 'address',
+      },
+    ],
     stateMutability: 'view',
     type: 'function',
   },
   {
-    constant: true,
     inputs: [],
     name: 'allPairsLength',
-    outputs: [{ internalType: 'uint256', name: '', type: 'uint256' }],
-    payable: false,
+    outputs: [
+      {
+        internalType: 'uint256',
+        name: '',
+        type: 'uint256',
+      },
+    ],
     stateMutability: 'view',
     type: 'function',
   },
   {
-    constant: false,
     inputs: [
-      { internalType: 'address', name: 'tokenA', type: 'address' },
-      { internalType: 'address', name: 'tokenB', type: 'address' },
+      {
+        internalType: 'address',
+        name: 'tokenA',
+        type: 'address',
+      },
+      {
+        internalType: 'address',
+        name: 'tokenB',
+        type: 'address',
+      },
+      {
+        internalType: 'bool',
+        name: 'stable',
+        type: 'bool',
+      },
     ],
     name: 'createPair',
-    outputs: [{ internalType: 'address', name: 'pair', type: 'address' }],
-    payable: false,
+    outputs: [
+      {
+        internalType: 'address',
+        name: 'pair',
+        type: 'address',
+      },
+    ],
     stateMutability: 'nonpayable',
     type: 'function',
   },
   {
-    constant: true,
     inputs: [],
-    name: 'feeTo',
-    outputs: [{ internalType: 'address', name: '', type: 'address' }],
-    payable: false,
+    name: 'getInitializable',
+    outputs: [
+      {
+        internalType: 'address',
+        name: '',
+        type: 'address',
+      },
+      {
+        internalType: 'address',
+        name: '',
+        type: 'address',
+      },
+      {
+        internalType: 'bool',
+        name: '',
+        type: 'bool',
+      },
+    ],
     stateMutability: 'view',
     type: 'function',
   },
   {
-    constant: true,
-    inputs: [],
-    name: 'feeToSetter',
-    outputs: [{ internalType: 'address', name: '', type: 'address' }],
-    payable: false,
-    stateMutability: 'view',
-    type: 'function',
-  },
-  {
-    constant: true,
     inputs: [
-      { internalType: 'address', name: '', type: 'address' },
-      { internalType: 'address', name: '', type: 'address' },
+      {
+        internalType: 'address',
+        name: '',
+        type: 'address',
+      },
+      {
+        internalType: 'address',
+        name: '',
+        type: 'address',
+      },
+      {
+        internalType: 'bool',
+        name: '',
+        type: 'bool',
+      },
     ],
     name: 'getPair',
-    outputs: [{ internalType: 'address', name: '', type: 'address' }],
-    payable: false,
+    outputs: [
+      {
+        internalType: 'address',
+        name: '',
+        type: 'address',
+      },
+    ],
     stateMutability: 'view',
     type: 'function',
   },
   {
-    constant: false,
-    inputs: [{ internalType: 'address', name: '_feeTo', type: 'address' }],
-    name: 'setFeeTo',
+    inputs: [
+      {
+        internalType: 'address',
+        name: '',
+        type: 'address',
+      },
+    ],
+    name: 'isPair',
+    outputs: [
+      {
+        internalType: 'bool',
+        name: '',
+        type: 'bool',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [],
+    name: 'isPaused',
+    outputs: [
+      {
+        internalType: 'bool',
+        name: '',
+        type: 'bool',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [],
+    name: 'pairCodeHash',
+    outputs: [
+      {
+        internalType: 'bytes32',
+        name: '',
+        type: 'bytes32',
+      },
+    ],
+    stateMutability: 'pure',
+    type: 'function',
+  },
+  {
+    inputs: [],
+    name: 'pauser',
+    outputs: [
+      {
+        internalType: 'address',
+        name: '',
+        type: 'address',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [],
+    name: 'pendingPauser',
+    outputs: [
+      {
+        internalType: 'address',
+        name: '',
+        type: 'address',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        internalType: 'bool',
+        name: '_state',
+        type: 'bool',
+      },
+    ],
+    name: 'setPause',
     outputs: [],
-    payable: false,
     stateMutability: 'nonpayable',
     type: 'function',
   },
   {
-    constant: false,
     inputs: [
-      { internalType: 'address', name: '_feeToSetter', type: 'address' },
+      {
+        internalType: 'address',
+        name: '_pauser',
+        type: 'address',
+      },
     ],
-    name: 'setFeeToSetter',
+    name: 'setPauser',
     outputs: [],
-    payable: false,
     stateMutability: 'nonpayable',
     type: 'function',
   },
