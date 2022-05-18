@@ -88,7 +88,17 @@ export function sumArray(numbers) {
   return numbers.reduce((total, n) => total + Number(n), 0);
 }
 
-export function bnToFixed(bn, decimals, displayDecimals = decimals) {
+export function bnToFixed(
+  bn,
+  decimals: string | number,
+  displayDecimals = decimals
+) {
+  if (typeof decimals === 'string') {
+    decimals = parseInt(decimals);
+  }
+  if (typeof displayDecimals === 'string') {
+    displayDecimals = parseInt(displayDecimals);
+  }
   const bnDecimals = new BigNumber(10).pow(decimals);
 
   return new BigNumber(bn)
