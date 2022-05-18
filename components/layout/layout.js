@@ -29,7 +29,7 @@ export default function Layout({
         />
         <meta
           name="description"
-          content="Solidly allows low cost, near 0 slippage trades on uncorrelated or tightly correlated assets built on Fantom."
+          content="Solidly allows low cost, near 0 slippage trades on uncorrelated or tightly correlated assets built on Meter."
         />
         <meta name="og:title" content="Solidly" />
         <meta name="twitter:card" content="summary_large_image" />

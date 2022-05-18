@@ -131,7 +131,7 @@ function Home({ changeTheme }) {
             <Typography variant="body1" className={classes.mainDescription}>
               Solidly officially launched in January 2022 with a collective goal
               of fair and balanced access to DeFi. Solidly is a decentralized
-              exchange that has launched on the Fantom network with low fees,
+              exchange that has launched on the Meter network with low fees,
               near 0 slippage on correlated assets and a strong focus on
               secondary markets for tokenized locks as NFT’s (veToken = lpNFTs).
             </Typography>

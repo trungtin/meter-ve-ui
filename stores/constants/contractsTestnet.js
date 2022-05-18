@@ -14,18 +14,18 @@ export const VE_TOKEN_DECIMALS = 18;
 export const VE_TOKEN_LOGO = 'https://prod.solidly.exchange/Solidly-O.svg';
 export const VE_TOKEN_ABI = abis.veTokenABI;
 
-export const WFTM_ADDRESS = '0x4cb6cef87d8cadf966b455e8bd58fff32aba49d1';
-export const WFTM_NAME = 'Meter';
-export const WFTM_SYMBOL = 'MTR';
-export const WFTM_DECIMALS = 18;
-export const WFTM_ABI = abis.wftmABI;
+export const WMTR_ADDRESS = '0x4cb6cef87d8cadf966b455e8bd58fff32aba49d1';
+export const WMTR_NAME = 'Meter';
+export const WMTR_SYMBOL = 'MTR';
+export const WMTR_DECIMALS = 18;
+export const WMTR_ABI = abis.wftmABI;
 
-export const FTM_ADDRESS = 'FTM';
-export const FTM_NAME = 'Fantom';
-export const FTM_SYMBOL = 'FTM';
-export const FTM_DECIMALS = 18;
-export const FTM_LOGO =
-  'https://assets.coingecko.com/coins/images/4001/large/Fantom.png';
+export const MTR_ADDRESS = WMTR_ADDRESS;
+export const MTR_NAME = 'Meter';
+export const MTR_SYMBOL = 'MTR';
+export const MTR_DECIMALS = 18;
+export const MTR_LOGO =
+  'https://raw.githubusercontent.com/meterio/token-list/master/data/MTR/logo.png';
 
 export const FACTORY_ADDRESS = '0xeeA13F55E3322f0702839a6c500abD1efA337B9d';
 export const FACTORY_ABI = abis.factoryABI;
