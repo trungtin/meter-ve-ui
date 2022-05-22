@@ -13,4 +13,3 @@ export type { TokenABI } from "./TokenABI";
 export type { VeDistABI } from "./VeDistABI";
 export type { VeTokenABI } from "./VeTokenABI";
 export type { VoterABI } from "./VoterABI";
-export type { WftmABI } from "./WftmABI";

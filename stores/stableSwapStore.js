@@ -1001,15 +1001,12 @@ class Store {
 
   _getBaseAssets = async () => {
     try {
-      const response = await fetch(
-        `/api/v1/baseAssets`,
-        {
-          method: 'get',
-          headers: {
-            Authorization: `Basic ${process.env.NEXT_PUBLIC_API_TOKEN}`,
-          },
-        }
-      );
+      const response = await fetch(`/api/v1/baseAssets`, {
+        method: 'get',
+        headers: {
+          Authorization: `Basic ${process.env.NEXT_PUBLIC_API_TOKEN}`,
+        },
+      });
       const baseAssetsCall = await response.json();
 
       let baseAssets = baseAssetsCall.data;
@@ -1022,7 +1019,15 @@ class Store {
         symbol: CONTRACTS.MTR_SYMBOL,
       };
 
-      baseAssets.unshift(nativeMTR);
+      const nativeMTRG = {
+        address: CONTRACTS.MTRG_ADDRESS,
+        decimals: CONTRACTS.MTRG_DECIMALS,
+        logoURI: CONTRACTS.MTRG_LOGO,
+        name: CONTRACTS.MTRG_NAME,
+        symbol: CONTRACTS.MTRG_SYMBOL,
+      };
+
+      baseAssets.unshift(nativeMTRG, nativeMTR);
 
       let localBaseAssets = this.getLocalAssets();
 
@@ -1035,15 +1040,12 @@ class Store {
 
   _getRouteAssets = async () => {
     try {
-      const response = await fetch(
-        `/api/v1/routeAssets`,
-        {
-          method: 'get',
-          headers: {
-            Authorization: `Basic ${process.env.NEXT_PUBLIC_API_TOKEN}`,
-          },
-        }
-      );
+      const response = await fetch(`/api/v1/routeAssets`, {
+        method: 'get',
+        headers: {
+          Authorization: `Basic ${process.env.NEXT_PUBLIC_API_TOKEN}`,
+        },
+      });
       const routeAssetsCall = await response.json();
       return routeAssetsCall.data;
     } catch (ex) {
@@ -1054,15 +1056,12 @@ class Store {
 
   _getPairs = async () => {
     try {
-      const response = await fetch(
-        `/api/v1/pairs`,
-        {
-          method: 'get',
-          headers: {
-            Authorization: `Basic ${process.env.NEXT_PUBLIC_API_TOKEN}`,
-          },
-        }
-      );
+      const response = await fetch(`/api/v1/pairs`, {
+        method: 'get',
+        headers: {
+          Authorization: `Basic ${process.env.NEXT_PUBLIC_API_TOKEN}`,
+        },
+      });
       const pairsCall = await response.json();
       return pairsCall.data;
     } catch (ex) {
@@ -1127,6 +1126,8 @@ class Store {
       const nftsLength = await vestingContract.methods
         .balanceOf(account.address)
         .call();
+
+      console.log('nftsLength: ', nftsLength);
       const arr = Array.from({ length: parseInt(nftsLength) }, (v, i) => i);
 
       const nfts = await Promise.all(
@@ -2397,15 +2398,12 @@ class Store {
 
   updatePairsCall = async (web3, account) => {
     try {
-      const response = await fetch(
-        `/api/v1/updatePairs`,
-        {
-          method: 'get',
-          headers: {
-            Authorization: `Basic ${process.env.NEXT_PUBLIC_API_TOKEN}`,
-          },
-        }
-      );
+      const response = await fetch(`/api/v1/updatePairs`, {
+        method: 'get',
+        headers: {
+          Authorization: `Basic ${process.env.NEXT_PUBLIC_API_TOKEN}`,
+        },
+      });
       const pairsCall = await response.json();
       this.setStore({ pairs: pairsCall.data });
 

@@ -9,7 +9,6 @@ import bribeABI from './bribeABI.json';
 import tokenABI from './tokenABI.json';
 import veDistABI from './veDistABI.json';
 import minterABI from './minterABI.json';
-import wftmABI from './wftmABI.json';
 import libraryABI from './libraryABI.json';
 
 export default {
@@ -24,6 +23,5 @@ export default {
   veDistABI,
   tokenABI,
   minterABI,
-  wftmABI,
   libraryABI,
 };

@@ -14,18 +14,25 @@ export const VE_TOKEN_DECIMALS = 18;
 export const VE_TOKEN_LOGO = 'https://prod.solidly.exchange/Solidly-O.svg';
 export const VE_TOKEN_ABI = abis.veTokenABI;
 
-export const WMTR_ADDRESS = '';
+export const WMTR_ADDRESS = '0x687A6294D0D6d63e751A059bf1ca68E4AE7B13E2';
 export const WMTR_NAME = 'Meter';
 export const WMTR_SYMBOL = 'MTR';
 export const WMTR_DECIMALS = 18;
-export const WMTR_ABI = abis.wftmABI;
+export const WMTR_ABI = abis.erc20ABI;
 
-export const MTR_ADDRESS = 'MTR';
+export const MTR_ADDRESS = '0x687A6294D0D6d63e751A059bf1ca68E4AE7B13E2';
 export const MTR_NAME = 'Meter';
 export const MTR_SYMBOL = 'MTR';
 export const MTR_DECIMALS = 18;
 export const MTR_LOGO =
   'https://raw.githubusercontent.com/meterio/token-list/master/data/MTR/logo.png';
+
+export const MTRG_ADDRESS = '0x228ebBeE999c6a7ad74A6130E81b12f9Fe237Ba3';
+export const MTRG_NAME = 'Meter Governance';
+export const MTRG_SYMBOL = 'MTRG';
+export const MTRG_DECIMALS = 18;
+export const MTRG_LOGO =
+  'https://raw.githubusercontent.com/meterio/token-list/master/data/MTRG/logo.png';
 
 export const FACTORY_ADDRESS = '';
 export const FACTORY_ABI = abis.factoryABI;

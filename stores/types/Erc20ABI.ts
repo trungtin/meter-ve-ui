@@ -29,12 +29,6 @@ export type Approval = ContractEventLog<{
   1: string;
   2: string;
 }>;
-export type OwnershipTransferred = ContractEventLog<{
-  previousOwner: string;
-  newOwner: string;
-  0: string;
-  1: string;
-}>;
 export type Transfer = ContractEventLog<{
   from: string;
   to: string;
@@ -52,74 +46,40 @@ export interface Erc20ABI extends BaseContract {
   ): Erc20ABI;
   clone(): Erc20ABI;
   methods: {
-    allowance(
-      owner: string,
-      spender: string
-    ): NonPayableTransactionObject<string>;
-
-    approve(
-      spender: string,
-      amount: number | string | BN
-    ): NonPayableTransactionObject<boolean>;
-
-    balanceOf(account: string): NonPayableTransactionObject<string>;
-
-    burn(amount: number | string | BN): NonPayableTransactionObject<void>;
-
-    burnFrom(
-      account: string,
-      amount: number | string | BN
-    ): NonPayableTransactionObject<void>;
-
-    decimals(): NonPayableTransactionObject<string>;
-
-    decreaseAllowance(
-      spender: string,
-      subtractedValue: number | string | BN
-    ): NonPayableTransactionObject<boolean>;
-
-    increaseAllowance(
-      spender: string,
-      addedValue: number | string | BN
-    ): NonPayableTransactionObject<boolean>;
-
-    mint(
-      to: string,
-      amount: number | string | BN
-    ): NonPayableTransactionObject<void>;
-
     name(): NonPayableTransactionObject<string>;
 
-    owner(): NonPayableTransactionObject<string>;
-
-    renounceOwnership(): NonPayableTransactionObject<void>;
-
-    symbol(): NonPayableTransactionObject<string>;
+    approve(
+      _spender: string,
+      _value: number | string | BN
+    ): NonPayableTransactionObject<boolean>;
 
     totalSupply(): NonPayableTransactionObject<string>;
 
-    transfer(
-      to: string,
-      amount: number | string | BN
-    ): NonPayableTransactionObject<boolean>;
-
     transferFrom(
-      from: string,
-      to: string,
-      amount: number | string | BN
+      _from: string,
+      _to: string,
+      _value: number | string | BN
     ): NonPayableTransactionObject<boolean>;
 
-    transferOwnership(newOwner: string): NonPayableTransactionObject<void>;
+    decimals(): NonPayableTransactionObject<string>;
+
+    balanceOf(_owner: string): NonPayableTransactionObject<string>;
+
+    symbol(): NonPayableTransactionObject<string>;
+
+    transfer(
+      _to: string,
+      _value: number | string | BN
+    ): NonPayableTransactionObject<boolean>;
+
+    allowance(
+      _owner: string,
+      _spender: string
+    ): NonPayableTransactionObject<string>;
   };
   events: {
     Approval(cb?: Callback<Approval>): EventEmitter;
     Approval(options?: EventOptions, cb?: Callback<Approval>): EventEmitter;
-
-    OwnershipTransferred(cb?: Callback<OwnershipTransferred>): EventEmitter;
-    OwnershipTransferred(
-      options?: EventOptions,
-      cb?: Callback<OwnershipTransferred>
-    ): EventEmitter;
 
     Transfer(cb?: Callback<Transfer>): EventEmitter;
     Transfer(options?: EventOptions, cb?: Callback<Transfer>): EventEmitter;
@@ -129,13 +89,6 @@ export interface Erc20ABI extends BaseContract {
 
   once(event: "Approval", cb: Callback<Approval>): void;
   once(event: "Approval", options: EventOptions, cb: Callback<Approval>): void;
-
-  once(event: "OwnershipTransferred", cb: Callback<OwnershipTransferred>): void;
-  once(
-    event: "OwnershipTransferred",
-    options: EventOptions,
-    cb: Callback<OwnershipTransferred>
-  ): void;
 
   once(event: "Transfer", cb: Callback<Transfer>): void;
   once(event: "Transfer", options: EventOptions, cb: Callback<Transfer>): void;

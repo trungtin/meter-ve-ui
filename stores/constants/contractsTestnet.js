@@ -1,13 +1,13 @@
 import abis from '../abis';
 
-export const GOV_TOKEN_ADDRESS = '0x80dBb63AF254dAc70a5e05c0E4F6ed898df5DC57';
-export const GOV_TOKEN_NAME = 'Solid';
+export const GOV_TOKEN_ADDRESS = '0xc2E15874B1f09c57a12CEADaD80924897f84b33A';
+export const GOV_TOKEN_NAME = 'Solidly';
 export const GOV_TOKEN_SYMBOL = 'SOLID';
 export const GOV_TOKEN_DECIMALS = 18;
 export const GOV_TOKEN_LOGO = 'https://prod.solidly.exchange/Solidly-O.svg';
 export const GOV_TOKEN_ABI = abis.tokenABI;
 
-export const VE_TOKEN_ADDRESS = '0x6c1448E3Ade898af186eAE40549b629f7E59F804';
+export const VE_TOKEN_ADDRESS = '0x04Fd95AADD73a3E46FeE0d485902bf3421C265b1';
 export const VE_TOKEN_NAME = 'veNFT';
 export const VE_TOKEN_SYMBOL = 'veNFT';
 export const VE_TOKEN_DECIMALS = 18;
@@ -18,26 +18,36 @@ export const WMTR_ADDRESS = '0x4cb6cef87d8cadf966b455e8bd58fff32aba49d1';
 export const WMTR_NAME = 'Meter';
 export const WMTR_SYMBOL = 'MTR';
 export const WMTR_DECIMALS = 18;
-export const WMTR_ABI = abis.wftmABI;
+export const WMTR_ABI = abis.erc20ABI;
 
-export const MTR_ADDRESS = WMTR_ADDRESS;
+export const MTR_ADDRESS = '0x4cb6cef87d8cadf966b455e8bd58fff32aba49d1';
 export const MTR_NAME = 'Meter';
 export const MTR_SYMBOL = 'MTR';
 export const MTR_DECIMALS = 18;
 export const MTR_LOGO =
   'https://raw.githubusercontent.com/meterio/token-list/master/data/MTR/logo.png';
 
-export const FACTORY_ADDRESS = '0xeeA13F55E3322f0702839a6c500abD1efA337B9d';
+export const MTRG_ADDRESS = '0x8a419ef4941355476cf04933e90bf3bbf2f73814';
+export const MTRG_NAME = 'Meter Governance';
+export const MTRG_SYMBOL = 'MTRG';
+export const MTRG_DECIMALS = 18;
+export const MTRG_LOGO =
+  'https://raw.githubusercontent.com/meterio/token-list/master/data/MTRG/logo.png';
+
+export const FACTORY_ADDRESS = '0xd2e6B03072D946ED12FF86e0081C7dFDf8D0a694';
 export const FACTORY_ABI = abis.factoryABI;
 
-export const ROUTER_ADDRESS = '0xAea96d5084EEdb53Af3B4dEC713c4C7fD7339F10';
+export const ROUTER_ADDRESS = '0x81585edd97E09Af9A20a981eC04e136Ac565c833';
 export const ROUTER_ABI = abis.routerABI;
 
-export const VE_DIST_ADDRESS = '0xF1288A5071c573b61dC01aAE22634324098fd2E8';
+export const VE_DIST_ADDRESS = '0xE1279469D5077cf6EaDC7f0Af0D19A3F2e2BA85f';
 export const VE_DIST_ABI = abis.veDistABI;
 
-export const VOTER_ADDRESS = '0x5E7Ca8ebC4F49919d0C74824456C0Bb72DFf1ceE';
+export const VOTER_ADDRESS = '0xFa9BCB9658fec9Aa5121506B596c06F86a82A2c7';
 export const VOTER_ABI = abis.voterABI;
+
+export const LIBRARY_ADDRESS = '0x37e0AAcE0D91c858f46bF7A1F2D8E81d9B45a569';
+export const LIBRARY_ABI = abis.libraryABI;
 
 export const ERC20_ABI = abis.erc20ABI;
 export const PAIR_ABI = abis.pairABI;
